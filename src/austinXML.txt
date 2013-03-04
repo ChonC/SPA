@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<!--============================================================-->
+<!-- shopElements for the Smart Process Automation System.       -->
+<!-- shell, chevron, exxon                                      -->
+<!--============================================================-->
+<biz-info>
+<!-- Chevron============================================================================================================== -->
+<!-- Note: 'id' must be a java integer type, so it can not be started with '0'.-->
+<!-- The first digit of id is '1' to indicates that it is a integer type,      -->
+<!-- The next 3 digits of id indicate a brand, and last 3 digits indicate the each store. -->
+<store id="1001001">
+	<name>
+		Chevron
+	</name>
+	<phone>
+		512-476-5516
+	</phone>
+	<address>
+		2819 Guadalupe St    Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>0.5</distance>
+		<x>225</x>
+		<y>176</y>
+	</location>
+	<products>
+		<unlead>
+			3.27
+		</unlead>
+		<plus-unlead>
+			3.37
+		</plus-unlead>
+		<premium-unlead>
+			3.47
+		</premium-unlead>
+		<diesel>
+			3.38
+		</diesel>
+	</products>
+</store>
+<store id="1001002">
+	<name>
+		Chevron USA Inc
+	</name>
+	<phone>
+		512-476-2341
+	</phone>
+	<address>
+		1005 Congress Ave #1080   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+			<distance>1</distance>
+			<x>226</x>
+			<y>276</y>
+	</location>
+	<products>
+		<unlead>
+			3.15
+		</unlead>
+			<plus-unlead>
+			3.32
+		</plus-unlead>
+			<premium-unlead>
+			3.35
+		</premium-unlead>
+	</products>
+</store>
+<store id="1001003">
+	<name>
+		Delwood Chevron
+	</name>
+	<phone>
+		512-474-7778
+	</phone>
+	<address>
+		3735 N I H 35   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>1.4</distance>
+                <x>311</x>
+                <y>176</y>
+	</location>
+	<products>
+		<unlead>
+			3.28
+		</unlead>
+		<plus-unlead>
+			3.39
+		</plus-unlead>
+		<premium-unlead>
+			3.47
+		</premium-unlead>
+		<diesel>
+			3.43
+		</diesel>
+	</products>
+</store>
+<store id="1001004">
+	<name>
+		Capital City Chevron
+	</name>
+	<phone>
+		512-476-3468
+	</phone>
+	<address>
+		601 N Interregional Hwy   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>1.4</distance>
+                <x>255</x>
+                <y>305</y>
+	</location>
+	<products>
+		<unlead>
+			3.29
+		</unlead>
+		<plus-unlead>
+			3.51
+		</plus-unlead>
+		<premium-unlead>
+			3.56
+		</premium-unlead>
+		<diesel>
+			3.51
+		</diesel>
+	</products>
+</store>
+<store id="1001005">
+	<name>
+		Broaddus Tarrytown Chevron
+	</name>
+	<phone>
+		512-478-9391
+	</phone>
+	<address>
+		3118 Windsor Rd   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>1.6</distance>
+                <x>102</x>
+                <y>169</y>
+	</location>
+	<products>
+		<unlead>3.06</unlead>
+		<plus-unlead>
+			3.16
+		</plus-unlead>
+		<premium-unlead>
+			3.28
+		</premium-unlead>
+	</products>
+</store>
+<store id="1001006">
+	<name>
+		Lake Austin Chevron
+	</name>
+	<phone>
+		512-477-7477
+	</phone>
+	<address>
+		2402 Lake Austin Blvd   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>1.9</distance>
+                <x>104</x>
+                <y>247</y>
+	</location>
+	<products>
+		<unlead>
+			3.09
+		</unlead>
+		<plus-unlead>
+			3.19
+		</plus-unlead>
+		<premium-unlead>
+			3.29
+		</premium-unlead>
+		<diesel>
+			3.17
+		</diesel>
+	</products>
+</store>
+<store id="1001007">
+	<name>
+		Eddie Slack Riverside Chevron
+	</name>
+	<phone>
+		512-477-8477
+	</phone>
+	<address>
+		400 S Congress Ave   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>2</distance>
+                <x>204</x>
+                <y>348</y>
+	</location>
+	<products>
+		<unlead>
+			3.13
+		</unlead>
+		<plus-unlead>
+			3.22
+		</plus-unlead>
+		<premium-unlead>
+			3.39
+		</premium-unlead>
+	</products>
+</store>
+<store id="1001008">
+	<name>
+		Townlake Chevron
+	</name>
+	<phone>
+		512-472-5113
+	</phone>
+	<address>
+		30 N I H 35   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>2.2</distance>
+                <x>239</x>
+                <y>356</y>
+	</location>
+	<products>
+		<unlead>
+			3.31
+		</unlead>
+		<plus-unlead>
+			3.50
+		</plus-unlead>
+		<premium-unlead>
+			3.55
+		</premium-unlead>
+		<diesel>
+			3.52
+		</diesel>
+	</products>
+</store>
+<store id="1001009">
+	<name>
+		Bee Caves Chevron
+	</name>
+	<phone>
+		512-328-3240
+	</phone>
+	<address>
+		2710 Bee Caves Rd   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>2.9</distance>
+                <x>51</x>
+                <y>290</y>
+	</location>
+	<products>
+		<unlead>
+			3.07
+		</unlead>
+		<plus-unlead>
+			3.17
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+		<diesel>
+			3.21
+		</diesel>
+	</products>
+</store>
+<store id="1001010">
+	<name>
+		Chevron
+	</name>
+	<phone>
+		512-453-8590
+	</phone>
+	<address>
+		5801 N I H 35   Austin, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>3</distance>
+                <x>360</x>
+                <y>65</y>
+	</location>
+	<products>
+		<unlead>
+			3.25
+		</unlead>
+		<plus-unlead>
+			3.37
+		</plus-unlead>
+		<premium-unlead>
+			3.47
+		</premium-unlead>
+		<diesel>
+			3.28
+		</diesel>
+	</products>
+</store>
+<!-- Exxon============================================================================================================== -->
+<store id="1002001">
+	<name>
+		Exxon Tiger Mart
+	</name>
+	<phone>
+		512-708-1145
+	</phone>
+	<address>
+		1901 Guadalupe St   Austin, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>0.3</distance>
+                <x>224</x>
+<y>227</y>
+	</location>
+	<products>
+		<unlead>
+			3.14
+		</unlead>
+		<plus-unlead>
+			3.24
+		</plus-unlead>
+		<premium-unlead>
+			3.38
+		</premium-unlead>
+		<diesel>
+			3.25
+		</diesel>
+	</products>
+</store>
+<store id="1002002">
+	<name>
+		Exxon Mobil Corp
+	</name>
+	<phone>
+		512-473-2334
+	</phone>
+	<address>
+		1005 Congress Ave # 900   Austin, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>1</distance>
+                <x>228</x>
+                <y>271</y>
+	</location>
+	<products>
+		<unlead>
+			3.27
+		</unlead>
+		<plus-unlead>
+			3.37
+		</plus-unlead>
+		<premium-unlead>
+			3.47
+		</premium-unlead>
+		<diesel>
+			3.36
+		</diesel>
+	</products>
+</store>
+<store id="1002003">
+	<name>
+		Exxon Mobil Corp
+	</name>
+	<phone>
+		512-472-1869
+	</phone>
+	<address>
+		619 N I H 35  Austin, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>1.4</distance>
+                <x>254</x>
+                <y>310</y>
+	</location>
+	<products>
+		<unlead>
+			3.29
+		</unlead>
+		<plus-unlead>
+			3.39
+		</plus-unlead>
+		<premium-unlead>
+			3.49
+		</premium-unlead>
+		<diesel>
+			3.35
+		</diesel>
+	</products>
+</store>
+<store id="1002004">
+	<name>
+		S S Zabodyn Exxon
+	</name>
+	<phone>
+		512-453-9403
+	</phone>
+	<address>
+		2801 Hancock Dr   Austin, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>2.8</distance>
+                <x>194</x>
+                <y>25</y>
+	</location>
+	<products>
+		<unlead>3.03</unlead>
+		<plus-unlead>
+			3.12
+		</plus-unlead>
+		<premium-unlead>
+			3.29
+		</premium-unlead>
+		<diesel>
+			3.11
+		</diesel>
+	</products>
+</store>
+<store id="1002005">
+	<name>
+		U T Exxon
+	</name>
+	<phone>
+		512-478-5434
+	</phone>
+	<address>
+		1500 S Pleasant Valley Rd   Austin, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>3.4</distance>
+                <x>307</x>
+                <y>422</y>
+	</location>
+	<products>
+		<unlead>
+			3.15
+		</unlead>
+		<plus-unlead>
+			3.25
+		</plus-unlead>
+		<premium-unlead>
+			3.45
+		</premium-unlead>
+		<diesel>
+			3.27
+		</diesel>
+	</products>
+</store>
+<!-- Shell============================================================================================================== -->
+<store id="1003001">
+	<name>
+		Shell Rapid Lube
+	</name>
+	<phone>
+		512-452-1108 
+	</phone>
+	<address>
+		3825 Guadalupe St   Austin, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>1.2</distance>
+                <x>240</x>
+                <y>132</y>
+	</location>
+	<products>
+		<unlead>
+			3.25
+		</unlead>
+		<plus-unlead>
+			3.39
+		</plus-unlead>
+		<premium-unlead>
+			3.44
+		</premium-unlead>
+		<diesel>
+			3.41
+		</diesel>
+	</products>
+</store>
+<store id="1003002">
+	<name>
+		Devs Shell
+	</name>
+	<phone>
+		512-458-2344
+	</phone>
+	<address>
+		4001 Medical Pkwy  Austin, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>1.5</distance><x>219</x><y>109</y>
+	</location>
+	<products>
+		<unlead>
+			3.23
+		</unlead>
+		<plus-unlead>
+			3.33
+		</plus-unlead>
+		<premium-unlead>
+			3.39
+		</premium-unlead>
+		<diesel>
+			3.36
+		</diesel>
+	</products>
+</store>
+<store id="1003003">
+	<name>
+		Tarrytown Shell
+	</name>
+	<phone>
+		512-472-9023
+	</phone>
+	<address>
+		2400 Exposition Blvd   Austin, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>1.7</distance>
+                <x>115</x>
+                <y>160</y>
+	</location>
+	<products>
+		<unlead>
+			3.14
+		</unlead>
+		<plus-unlead>
+			3.34
+		</plus-unlead>
+		<premium-unlead>
+			3.38
+		</premium-unlead>
+		<diesel>
+			3.32
+		</diesel>
+	</products>
+</store>
+<store id="1003004">
+	<name>
+		Double Tuff Truck Tarps Inc
+	</name>
+	<phone>
+		512-385-3500
+	</phone>
+	<address>
+		4909 E Cesar Chavez St   Austin, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>3.4</distance>
+                <x>379</x>
+                <y>366</y>
+	</location>
+	<products>
+		<unlead>
+			3.17
+		</unlead>
+		<plus-unlead>
+			3.28
+		</plus-unlead>
+		<premium-unlead>
+			3.36
+		</premium-unlead>
+	</products>
+</store>
+<store id="1003005">
+	<name>
+		Shell Food Mart
+	</name>
+	<phone>
+		512-467-6705
+	</phone>
+	<address>
+		6715 E Highway 290   Austin, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>3.5</distance>
+                <x>407</x>
+                <y>61</y>
+	</location>
+	<products>
+		<unlead>
+			3.31
+		</unlead>
+		<plus-unlead>
+			3.49
+		</plus-unlead>
+		<premium-unlead>
+			3.55
+		</premium-unlead>
+		<diesel>
+			3.46
+		</diesel>
+	</products>
+</store>
+<store id="1003006">
+	<name>
+		Shell
+	</name>
+	<phone>
+		512-447-7676
+	</phone>
+	<address>
+		2241 S I H 35   Austin, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>3.6</distance>
+                <x>237</x>
+                <y>425</y>
+	</location>
+	<products>
+		<unlead>3.32</unlead><plus-unlead>3.54</plus-unlead><premium-unlead>3.59</premium-unlead><diesel>3.43</diesel></products>
+</store>
+<!-- Texaco============================================================================================================== -->
+<store id="1004001"><!-- ID for the order system, which will be used for Purchasing and payment.-->
+	<name>
+		Texaco 1 Stop
+	</name>
+	<phone>
+		512-472-5539
+	</phone>
+	<address>
+		1900 Guadalupe St   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>0.3</distance>
+                <x>218</x>
+                <y>227</y>
+	</location>
+	<products>
+		<unlead>
+			3.18
+		</unlead>
+		<plus-unlead>
+			3.29
+		</plus-unlead>
+		<premium-unlead>
+			3.37
+		</premium-unlead>
+	</products>
+	<services>
+		Such as Lottery, Car service( oil change, inspection) for a future system.
+	</services>
+</store>
+<store  id="1004002">
+	<name>
+		Xpresso Lube
+	</name>
+	<phone>
+		512-452-5516
+	</phone>
+	<address>
+		3016 Guadalupe St   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>0.7</distance>
+                <x>219</x>
+                <y>161</y>
+	</location>
+	<products>
+		<unlead>
+			3.14
+		</unlead>
+		<plus-unlead>
+			3.26
+		</plus-unlead>
+		<premium-unlead>
+			3.34
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004003">
+	<name>
+		Texaco Public Govt Affairs
+	</name>
+	<phone>
+		512-478-4988
+	</phone>
+	<address>
+		1005 Congress Ave # 1080   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1</distance>
+                <x>222</x>
+                <y>270</y>
+	</location>
+	<products>
+		<unlead>
+			3.25
+		</unlead>
+		<plus-unlead>
+			3.37
+		</plus-unlead>
+		<premium-unlead>
+			3.47
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004004">
+	<name>
+		Texaco Inc
+	</name>
+	<phone>
+		512-458-6625
+	</phone>
+	<address>
+		3828 N I H 35   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.4</distance>
+                <x>306</x>
+                <y>164</y>
+	</location>
+	<products>
+		<unlead>
+			3.19
+		</unlead>
+		<plus-unlead>
+			3.41
+		</plus-unlead>
+		<premium-unlead>
+			3.56
+		</premium-unlead>
+		<diesel>
+			3.42
+		</diesel>
+	</products>
+</store>
+<store id="1004005">
+	<name>
+		Austin Texaco
+	</name>
+	<phone>
+		512-708-8626
+	</phone>
+	<address>
+		701 N I H 35   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location><distance>1.4</distance><x>254</x><y>296</y></location>
+	<products>
+		<unlead>
+			3.29
+		</unlead>
+		<plus-unlead>
+			3.53
+		</plus-unlead>
+		<premium-unlead>
+			3.59
+		</premium-unlead>
+		<diesel>
+			3.46
+		</diesel>
+	</products>
+</store>
+<store id="1004006">
+	<name>
+		Tarrytown Texaco
+	</name>
+	<phone>
+		512-472-9023
+	</phone>
+	<address>
+		2400 Exposition Blvd   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.7</distance>
+                <x>112</x>
+                <y>165</y>
+	</location>
+	<products>
+		<unlead>
+			3.15
+		</unlead>
+		<plus-unlead>
+			3.27
+		</plus-unlead>
+		<premium-unlead>
+			3.36
+		</premium-unlead>
+		<diesel>
+			3.27
+		</diesel>
+	</products>
+</store>
+<store id="1004007">
+	<name>
+		Casis Village Texaco
+	</name>
+	<phone>
+		512-478-1905
+	</phone>
+	<address>
+		2701 Exposition Blvd   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.7</distance>
+                <x>133</x>
+                <y>132</y>
+	</location>
+	<products>
+		<unlead>
+			3.21
+		</unlead>
+		<plus-unlead>
+			3.39
+		</plus-unlead>
+		<premium-unlead>
+			3.49
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004008">
+	<name>
+		Airport Texaco
+	</name>
+	<phone>
+		512-472-5330
+	</phone>
+	<address>
+		3839 Airport Blvd   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>2.0</distance><x>358</x><y>194</y>
+	</location>
+	<products>
+		<unlead>
+			3.13
+		</unlead>
+		<plus-unlead>
+			3.23
+		</plus-unlead>
+		<premium-unlead>
+			3.29
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004009">
+	<name>
+		Texaco
+	</name>
+	<phone>
+		512-236-1030
+	</phone>
+	<address>
+		2700 E 7th St   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>2.5</distance>
+                <x>341</x>
+                <y>325</y>
+	</location>
+	<products>
+		<unlead>
+			3.18
+		</unlead>
+		<plus-unlead>3.29</plus-unlead>
+		<premium-unlead>
+			3.37
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004010">
+	<name>
+		Texaco Ctr
+	</name>
+	<phone>
+		512-453-5231 
+	</phone>
+	<address>
+		5555 N Lamar Blvd # C102   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>2.7</distance>
+                <x>277</x>
+                <y>35</y>
+	</location>
+	<products>
+		<unlead>
+			3.11
+		</unlead>
+		<plus-unlead>
+			3.25
+		</plus-unlead>
+		<premium-unlead>3.35</premium-unlead>
+		<diesel>
+			3.18
+		</diesel>
+	</products>
+</store>
+<store id="1004011">
+	<name>
+		Torres Texaco
+	</name>
+	<phone>
+		512-459-5869
+	</phone>
+	<address>
+		301 W Koenig Ln   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>2.7</distance>
+                <x>300</x>
+                <y>41</y>
+	</location>
+	<products>
+		<unlead>
+			3.15
+		</unlead>
+		<plus-unlead>
+			3.25
+		</plus-unlead>
+		<premium-unlead>
+			3.35
+		</premium-unlead>
+		<diesel>
+			3.27
+		</diesel>
+	</products>
+</store>
+<store id="1004012">
+	<name>
+		Texaco 1 Stop
+	</name>
+	<phone>
+		512-451-1067
+	</phone>
+	<address>
+		5740 N I H 35   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>2.9</distance>
+                <x>352</x>
+                <y>61</y>
+	</location>
+	<products>
+		<unlead>
+			3.29
+		</unlead>
+		<plus-unlead>
+			3.51
+		</plus-unlead>
+		<premium-unlead>
+			3.56
+		</premium-unlead>
+		<diesel>3.38</diesel>
+	</products>
+</store>
+<store id="1004013">
+	<name>
+		Roy Kovar Texaco
+	</name>
+	<phone>
+		512-327-0624
+	</phone>
+	<address>
+		2800 Bee Caves Rd   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>2.9</distance>
+                <x>37</x>
+                <y>276</y>
+	</location>
+	<products>
+		<unlead>
+			3.09
+		</unlead>
+		<plus-unlead>
+			3.31
+		</plus-unlead>
+		<premium-unlead>
+			3.36
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004014">
+	<name>
+		Texaco
+	</name>
+	<phone>
+		512-238-0130
+	</phone>
+	<address>
+		1550 S I H 35   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>3</distance>
+                <x>243</x>
+                <y>407</y>
+	</location>
+	<products>
+		<unlead>
+			3.25
+		</unlead>
+		<plus-unlead>
+			3.37
+		</plus-unlead>
+		<premium-unlead>
+			3.47
+		</premium-unlead>
+		<diesel>
+			3.37
+		</diesel>
+	</products>
+</store>
+<store id="1004015">
+	<name>
+		Mr Gs Texaco Food Mart
+	</name>
+	<phone>
+		512-467-2230
+	</phone>
+	<address>
+		6515 Airport Blvd   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>3.3</distance>
+                <x>324</x>
+                <y>12</y>
+	</location>
+	<products>
+		<unlead>
+			3.19
+		</unlead>
+		<plus-unlead>
+			3.29
+		</plus-unlead>
+		<premium-unlead>
+			3.39
+		</premium-unlead>
+		<diesel>
+			3.32
+		</diesel>
+	</products>
+</store>
+<store id="1004016">
+	<name>
+		Westlake Texaco
+	</name>
+	<phone>
+		512-327-0262
+	</phone>
+	<address>
+		98 Redbud Trl   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>3.4</distance>
+                <x>4</x>
+                <y>181</y>
+	</location>
+	<products>
+		<unlead>
+			3.02
+		</unlead>
+		<plus-unlead>
+			3.09
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004017">
+	<name>
+		Texaco Mbc Station
+	</name>
+	<phone>
+		512-929-0309
+	</phone>
+	<address>
+		1801 Briarcliff Blvd   Austin, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>3.5</distance>
+                <x>420</x>
+                <y>84</y>
+	</location>
+	<products>
+		<unlead>
+			3.03
+		</unlead>
+		<plus-unlead>
+			3.14
+		</plus-unlead>
+		<premium-unlead>
+			3.28
+		</premium-unlead>
+	</products>
+</store>
+</biz-info>
+<!--============================================================-->
+<!--       copyright (c) Chon D. Chung 2001                     -->
+<!--============================================================-->

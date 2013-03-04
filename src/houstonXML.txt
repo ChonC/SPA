@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<!--============================================================-->
+<!-- BizInfo for the Smart Process Automation System.       -->
+<!-- shell, chevron, exxon, Texaco                              -->
+<!--============================================================-->
+<biz-info>
+<!-- Chevron============================================================================================================== -->
+<!-- Note: 'id' must be a java integer type, so it can not be started with '0'.-->
+<!-- The first digit of id is '1' to indicates that it is a integer type,      -->
+<!-- The next 3 digits of id indicate a brand, and last 3 digits indicate the each store. -->
+<store id="1001001">
+	<name>
+		Chevron
+	</name>
+	<phone>
+		713-627-3053
+	</phone>
+	<address>
+		5215 Richmond Ave   Houston, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>0.68</distance>
+		<latitude>29.731442</latitude>
+		<longitude>-95.466956</longitude>
+                <x>215</x>
+                <y>264</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.15
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+	</products>
+</store>
+<store id="1001002">
+	<name>
+		Chevron
+	</name>
+	<phone>
+		713-622-6063
+	</phone>
+	<address>
+		3754 Westheimer Rd   Houston, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>1.3</distance>
+		<latitude>29.741837 </latitude>
+		<longitude>-95.440512</longitude>
+                <x>340</x>
+                <y>198</y>
+	</location>
+	<products>
+		<unlead>
+			3.01
+		</unlead>
+		<plus-unlead>
+			3.13
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+	</products>
+</store>
+<store id="1001003">
+	<name>
+		Chevron Food Mart
+	</name>
+	<phone>
+		713-789-1626
+	</phone>
+	<address>
+		1702 Fountain View Dr   Houston, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>1.5</distance>
+		<latitude>29.749749</latitude>
+		<longitude>-95.486157</longitude>
+                <x>112</x>
+                <y>142</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.17
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+		<diesel>
+			3.17
+		</diesel>
+	</products>
+</store>
+<store id="1001004">
+	<name>
+		Southwest Chevron
+	</name>
+	<phone>
+		713-661-2176
+	</phone>
+	<address>
+		4908 Tamarisk St   Houston, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>1.7</distance>
+		<latitude>29.716237</latitude>
+		<longitude>-95.464209</longitude>
+                <x>221</x>
+                <y>372</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.15
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+	</products>
+</store>
+<store id="1001005">
+	<name>
+		Chevron
+	</name>
+	<phone>
+		713-668-2096
+	</phone>
+	<address>
+		5020 Bellaire Blvd   Houston, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>2.4</distance>
+		<latitude>29.705837</latitude>
+		<longitude>-95.467115</longitude>
+                <x>213</x>
+                <y>422</y>
+	</location>
+	<products>
+		<unlead>
+			3.01
+		</unlead>
+		<plus-unlead>
+			3.11
+		</plus-unlead>
+		<premium-unlead>
+			3.19
+		</premium-unlead>
+		<diesel>
+			3.19
+		</diesel>
+	</products>
+</store>
+<store id="1001006">
+	<name>
+		Chevron
+	</name>
+	<phone>
+		713-780-7991
+	</phone>
+	<address>
+		3514 Hillcroft St   Houston, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>2.5</distance>
+		<latitude>29.727847</latitude>
+		<longitude>-95.501257</longitude>
+                <x>22</x>
+                <y>288</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.17
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+		<diesel>
+			3.17
+		</diesel>
+	</products>
+</store>
+<store id="1001007">
+	<name>
+		Chevron
+	</name>
+	<phone>
+		713-774-3859
+	</phone>
+	<address>
+		6237 Bellaire Blvd   Houston, TX
+	</address>
+	<brand>
+                Chevron
+	</brand>
+	<location>
+		<distance>3</distance>
+		<latitude>29.705363</latitude>
+		<longitude>-95.491289</longitude>
+                <x>74</x>
+                <y>423</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.10
+		</plus-unlead>
+		<premium-unlead>
+			3.18
+		</premium-unlead>
+		<diesel>
+			3.15
+		</diesel>
+	</products>
+</store>
+<!-- Exxon============================================================================================================== -->
+<store id="1002001">
+	<name>
+		San Felipe 610 Exxon
+	</name>
+	<phone>
+		713-871-8188
+	</phone>
+	<address>
+		4423 San Felipe St   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>0.61</distance>
+		<latitude>29.746653</latitude>
+		<longitude>-95.455273</longitude>
+                <x>259</x>
+                <y>162</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.17
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+	</products>
+</store>
+<store id="1002002">
+	<name>
+		Steve's Exxon By The Galleria
+	</name>
+	<phone>
+		713-622-2588
+	</phone>
+	<address>
+		5216 Richmond Ave   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>0.67</distance>
+		<latitude>29.731715 </latitude>
+		<longitude>-95.46699</longitude>
+                <x>199</x>
+                <y>267</y>
+	</location>
+	<products>
+		<unlead>
+			3.08
+		</unlead>
+		<plus-unlead>
+			3.19
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+	</products>
+</store>
+<store id="1002003">
+	<name>
+		Sage Exxon
+	</name>
+	<phone>
+		713-621-2366
+	</phone>
+	<address>
+		5138 San Felipe St  Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>0.69</distance>
+		<latitude>29.750337 </latitude>
+		<longitude>-95.465241</longitude>
+                <x>200</x>
+                <y>144</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.15
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+	</products>
+</store>
+<store id="1002004">
+	<name>
+		Exxon Convenience Store
+	</name>
+	<phone>
+		713-781-6665
+	</phone>
+	<address>
+		5702 Westheimer Rd   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>0.86</distance>
+		<latitude>29.738037</latitude>
+		<longitude>-95.476748</longitude>
+                <x>144</x>
+                <y>225</y>
+	</location>
+	<products>
+		<unlead>
+			3.01
+		</unlead>
+		<plus-unlead>
+			3.11
+		</plus-unlead>
+		<premium-unlead>
+			3.19
+		</premium-unlead>
+		<diesel>
+			3.05
+		</diesel>
+	</products>
+</store>
+<store id="1002005">
+	<name>
+		Roberts Exxon
+	</name>
+	<phone>
+		713-621-1055
+	</phone>
+	<address>
+		3802 Westheimer Rd   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>1.3</distance>
+		<latitude>29.741837</latitude>
+		<longitude>-95.441891</longitude>
+                <x>329</x>
+                <y>199</y>
+	</location>
+	<products>
+		<unlead>
+			3.03
+		</unlead>
+		<plus-unlead>
+			3.12
+		</plus-unlead>
+		<premium-unlead>
+			3.19
+		</premium-unlead>
+		<diesel>
+			3.19
+		</diesel>
+	</products>
+</store>
+<store id="1002006">
+	<name>
+		Chimney Rocks Fry Exxon
+	</name>
+	<phone>
+		713-667-3940
+	</phone>
+	<address>
+		5601 Southwest Fwy   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>1.4</distance>
+		<latitude>29.726337</latitude>
+		<longitude>-95.479162</longitude>
+                <x>135</x>
+                <y>302</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.25
+		</plus-unlead>
+		<premium-unlead>
+			3.32
+		</premium-unlead>
+		<diesel>
+			3.29
+		</diesel>
+	</products>
+</store>
+<store id="1002007">
+	<name>
+		Sage Exxon
+	</name>
+	<phone>
+		713-965-0887
+	</phone>
+	<address>
+		5890 San Felipe St   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>1.5</distance>
+		<latitude>29.750037</latitude>
+		<longitude>-95.485311</longitude>
+                <x>91</x>
+                <y>145</y>
+	</location>
+	<products>
+		<unlead>
+			3.02
+		</unlead>
+		<plus-unlead>
+			3.09
+		</plus-unlead>
+		<premium-unlead>
+			3.21
+		</premium-unlead>
+	</products>
+</store>
+<store id="1002008">
+	<name>
+		Woodway Exxon
+	</name>
+	<phone>
+		713-621-2570
+	</phone>
+	<address>
+		5139 Woodway Dr   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location><distance>1.5</distance><latitude>29.762184 </latitude><longitude>-95.466575</longitude><x>191</x><y>64</y>
+	</location>
+	<products>
+		<unlead>
+			3.15
+		</unlead>
+		<plus-unlead>
+			3.25
+		</plus-unlead>
+		<premium-unlead>
+			3.35
+		</premium-unlead>
+		<diesel>
+			3.27
+		</diesel>
+	</products>
+</store>
+<store id="1002009">
+	<name>
+		Roberts Exxon Car Care Ctr
+	</name>
+	<phone>
+		713-661-7655
+	</phone>
+	<address>
+		5915 Chimney Rock Rd   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>1.8</distance>
+		<latitude>29.717576</latitude>
+		<longitude>-95.476241</longitude>
+                <x>151</x>
+                <y>343</y>
+	</location>
+	<products>
+		<unlead>
+			3.09
+		</unlead>
+		<plus-unlead>
+			3.18
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+	</products>
+</store>
+<store id="1002010">
+	<name>
+		Exxon Convenience Store
+	</name>
+	<phone>
+		713-528-4756
+	</phone>
+	<address>
+		3140 Southwest Fwy   Houston, TX
+	</address>
+	<brand>
+		Exxon
+	</brand>
+	<location>
+		<distance>2.3</distance>
+		<latitude>29.730432</latitude>
+		<longitude>-95.426712</longitude>
+                <x>411</x>
+                <y>286</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.17
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+	</products>
+</store>
+<!-- Shell============================================================================================================== -->
+<store id="1003001">
+	<name>
+		Shell Oil Co
+	</name>
+	<phone>
+		713-245-8300
+	</phone>
+	<address>
+		5085 Westheimer Rd   Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>0.02</distance>
+		<latitude>29.740609</latitude>
+		<longitude>-95.463273</longitude>
+                <x>227</x>
+                <y>208</y>
+	</location>
+	<products>
+		<unlead>
+			3.03
+		</unlead>
+		<plus-unlead>
+			3.13
+		</plus-unlead>
+		<premium-unlead>
+			3.23
+		</premium-unlead>
+	</products>
+</store>
+<store id="1003002">
+	<name>
+		West Loop Shell
+	</name>
+	<phone>
+		713-960-9183
+	</phone>
+	<address>
+		2602 West Loop S  Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>0.23</distance>
+		<latitude>29.740886</latitude>
+		<longitude>-95.458889</longitude>
+                <x>240</x>
+                <y>209</y>
+	</location>
+	<products>
+		<unlead>
+			3.08
+		</unlead>
+		<plus-unlead>
+			3.19
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+	</products>
+</store>
+<store id="1003003">
+	<name>
+		Chimney Rock Shell
+	</name>
+	<phone>
+		713-953-2927
+	</phone>
+	<address>
+		3202 Chimney Rock Rd   Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>1</distance>
+		<latitude>29.731343 </latitude>
+		<longitude>-95.476557</longitude>
+                <x>145</x>
+                <y>267</y>
+	</location>
+	<products>
+		<unlead>
+			3.01
+		</unlead>
+		<plus-unlead>
+			3.13
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+	</products>
+</store>
+<store id="1003004">
+	<name>
+		Westheimer Shell Svc Ctr
+	</name>
+	<phone>
+		713-627-0591
+	</phone>
+	<address>
+		3803 Westheimer Rd   Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>1.2</distance>
+		<latitude>29.741563</latitude>
+		<longitude>-95.441908</longitude>
+                <x>331</x>
+                <y>201</y>
+	</location>
+	<products>
+		<unlead>
+			3.03
+		</unlead>
+		<plus-unlead>
+			3.13
+		</plus-unlead>
+		<premium-unlead>
+			3.19
+		</premium-unlead>
+		<diesel>
+			3.23
+		</diesel>
+	</products>
+</store>
+<store id="1003005">
+	<name>
+		Shell Service Station
+	</name>
+	<phone>
+		713-871-9413
+	</phone>
+	<address>
+		3702 Weslayan St   Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>1.4</distance>
+		<latitude>29.73245</latitude>
+		<longitude>-95.441657</longitude>
+                <x>330</x>
+                <y>261</y>
+	</location>
+	<products>
+		<unlead>
+			3.09
+		</unlead>
+		<plus-unlead>
+			3.19
+		</plus-unlead>
+		<premium-unlead>
+			3.29
+		</premium-unlead>
+	</products>
+</store>
+<store id="1003006">
+	<name>
+		Southwest Shell
+	</name>
+	<phone>
+		713-783-3080
+	</phone>
+	<address>
+		5602 Southwest Fwy   Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>1.4</distance>
+		<latitude>29.726063</latitude>
+		<longitude>-95.479167</longitude>
+                <x>135</x>
+                <y>302</y>
+	</location>
+	<products>
+		<unlead>
+			3.09
+		</unlead>
+		<plus-unlead>
+			3.31
+		</plus-unlead>
+		<premium-unlead>
+			3.36
+		</premium-unlead>
+		<diesel>
+			3.28
+		</diesel>
+	</products>
+</store>
+<store id="1003007">
+	<name>
+		Shell Service Station
+	</name>
+	<phone>
+		713-877-8300
+	</phone>
+	<address>
+		3939 Southwest Fwy   Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>1.6</distance>
+		<latitude>29.72838</latitude>
+		<longitude>-95.439674</longitude>
+                <x>99</x>
+                <y>162</y>
+	</location>
+	<products>
+		<unlead>
+			3.01
+		</unlead>
+		<plus-unlead>
+			3.19
+		</plus-unlead>
+		<premium-unlead>
+			3.29
+		</premium-unlead>
+	</products>
+</store>
+<store id="1003008">
+	<name>
+		Shell Service Station
+	</name>
+	<phone>
+		713-977-6143
+	</phone>
+	<address>
+		6522 Westheimer Rd   Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>2.2</distance>
+		<latitude>29.737737</latitude>
+		<longitude>-95.498845</longitude>
+                <x>336</x>
+                <y>292</y>
+	</location>
+	<products>
+		<unlead>
+			3.07
+		</unlead>
+		<plus-unlead>
+			3.13
+		</plus-unlead>
+		<premium-unlead>
+			3.23
+		</premium-unlead>
+		<diesel>
+			3.19
+		</diesel>
+	</products>
+</store>
+<store id="1003009">
+	<name>
+		Shell Service Station
+	</name>
+	<phone>
+		713-529-3723
+	</phone>
+	<address>
+		3141 Southwest Fwy   Houston, TX
+	</address>
+	<brand>
+		Shell
+	</brand>
+	<location>
+		<distance>2.3</distance>
+		<latitude>29.72954</latitude>
+		<longitude>-95.427053</longitude>
+                <x>30</x>
+                <y>228</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.13
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+	</products>
+</store>
+<!-- Texaco============================================================================================================== -->
+<store id="1004001"><!-- ID for the order system, which will be used for Purchasing and payment.-->
+	<name>
+		Suffouri's Texaco
+	</name>
+	<phone>
+		713-626-2252
+	</phone>
+	<address>
+		2601 West Loop S   Houston, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>0.31</distance>
+		<latitude>29.740837</latitude>
+		<longitude>-95.457577</longitude>
+                <x>248</x>
+                <y>210</y>
+	</location>
+	<products>
+		<unlead>
+			3.06
+		</unlead>
+		<plus-unlead>
+			3.17
+		</plus-unlead>
+		<premium-unlead>
+			3.25
+		</premium-unlead>
+	</products>
+	<services>
+		Such as Lottery, Car service( oil change, inspection) for a future system.
+	</services>
+</store>
+<store  id="1004002">
+	<name>
+		Texaco-Danny's Auto Svc
+	</name>
+	<phone>
+		713-782-2671
+	</phone>
+	<address>
+		2524 Chimney Rock Rd   Houston, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>0.87</distance>
+		<latitude>29.7393</latitude>
+		<longitude>-95.477161</longitude>
+                <x>143</x>
+                <y>217</y>
+	</location>
+	<products>
+		<unlead>
+			3.09
+		</unlead>
+		<plus-unlead>
+			3.19
+		</plus-unlead>
+		<premium-unlead>
+			3.29
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004003">
+	<name>
+		River Oaks Texaco
+	</name>
+	<phone>
+		713-850-0910
+	</phone>
+	<address>
+		3903 San Felipe St   Houston, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.3</distance>
+		<latitude>29.746654</latitude>
+		<longitude>-95.441919</longitude>
+                <x>330</x>
+                <y>168</y>
+	</location>
+	<products>
+		<unlead>
+			2.93
+		</unlead>
+		<plus-unlead>
+			3.13
+		</plus-unlead>
+		<premium-unlead>
+			3.23
+		</premium-unlead>
+		<diesel>
+			3.21
+		</diesel>
+	</products>
+</store>
+<store id="1004004">
+	<name>
+		Chimney Rock Texaco
+	</name>
+	<phone>
+		713-666-6991
+	</phone>
+	<address>
+		5555 Southwest Fwy   Houston, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.3</distance>
+		<latitude>29.725537</latitude>
+		<longitude>-95.476203</longitude>
+                <x>152</x>
+                <y>314</y>
+	</location>
+	<products>
+		<unlead>
+			3.07
+		</unlead>
+		<plus-unlead>
+			3.17
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+		<diesel>
+			3.14
+		</diesel>
+	</products>
+</store>
+<store id="1004005">
+	<name>
+		Woodway Texaco
+	</name>
+	<phone>
+		713-965-0141
+	</phone>
+	<address>
+		5121 Woodway Dr   Houston, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.5</distance>
+		<latitude>29.762067</latitude>
+		<longitude>-95.466141</longitude>
+                <x>201</x>
+                <y>62</y>
+	</location>
+	<products>
+		<unlead>
+			2.99
+		</unlead>
+		<plus-unlead>
+			3.08
+		</plus-unlead>
+		<premium-unlead>
+			3.15
+		</premium-unlead>
+		<diesel>
+			3.14
+		</diesel>
+	</products>
+</store>
+<store id="1004006">
+	<name>
+		San Felipe Texaco
+	</name>
+	<phone>
+		713-782-2600
+	</phone>
+	<address>
+		5890 San Felipe St   Houston, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.5</distance>
+		<latitude>29.750037</latitude>
+		<longitude>-95.485311</longitude>
+                <x>95</x>
+                <y>145</y>
+	</location>
+	<products>
+		<unlead>
+			3.05
+		</unlead>
+		<plus-unlead>
+			3.13
+		</plus-unlead>
+		<premium-unlead>
+			3.19
+		</premium-unlead>
+	</products>
+</store>
+<store id="1004007">
+	<name>
+		Texaco Bellaire
+	</name>
+	<phone>
+		713-432-2304
+	</phone>
+	<address>
+		5901 S Rice Ave   Houston, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.6</distance>
+		<latitude>29.717363</latitude>
+		<longitude>-95.467941</longitude>
+                <x>239</x>
+                <y>344</y>
+	</location>
+	<products>
+		<unlead>
+			3.07
+		</unlead>
+		<plus-unlead>
+			3.17
+		</plus-unlead>
+		<premium-unlead>
+			3.27
+		</premium-unlead>
+		<diesel>
+			3.20
+		</diesel>
+	</products>
+</store>
+<store id="1004008">
+	<name>
+		Prudential Texaco
+	</name>
+	<phone>
+		713-666-0995
+	</phone>
+	<address>
+		4800 Fournace Pl   Houston, TX
+	</address>
+	<brand>
+		Texaco
+	</brand>
+	<location>
+		<distance>1.6</distance>
+		<latitude>29.716737</latitude>
+		<longitude>-95.462262</longitude>
+                <x>207</x>
+                <y>344</y>
+	</location>
+	<products>
+		<unlead>
+			3.11
+		</unlead>
+		<plus-unlead>
+			3.25
+		</plus-unlead>
+		<premium-unlead>
+			3.35
+		</premium-unlead>
+	</products>
+</store>
+</biz-info>
+<!--============================================================-->
+<!--       copyright (c) Chon D. Chung 2001                     -->
+<!--============================================================-->
