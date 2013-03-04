@@ -12,7 +12,7 @@ Record your Smart Decision Processes, store them in a computing device, and auto
 SPA automation Algorithm
 ------------------------
 SPA (Smart Process Automation) is the Fractal Object-Oriented Algorithm; it records the process and automates them.  It is based on the Decision Factor (DF), which is the basic building block that influences and defines the decision outcome.  For example, if we would like to locate the nearest gas station with the best price, there are 4 Decision Factors: type of gas, gas brand, distance, and price.
-With each Decision Factor, we can create a Decision Question (DQ), which interactively asks a person for his/her decision process, step-by-step. By combining all of the DQ’s in a logical manner, we can develop an SPA that records the person's decision process for one-click automation.
+With each Decision Factor, we can create a Decision Question (DQ), which interactively asks a person for his/her decision process, step-by-step. By combining all of the DQï¿½s in a logical manner, we can develop an SPA that records the person's decision process for one-click automation.
 
 Moreover, SPA is a Fractal Intelligence Algorithm. By <strong>combining multiple SPA modules</strong>, we can solve <strong>complex decision tasks</strong> such as: finding the best place for gas, lunch and shopping, and then drive a route that includes all of them.  Also, a Fractal Intelligence Algorithm requires less memory and process power than other Intelligence Algorithms a smaller computing device.    
 
@@ -48,6 +48,7 @@ Identify the Decision Factors of the task.  For example, if we want to develop a
 ![Movie Threater Finder](http://chon.techliminal.com/cityfind/images/movie_df.png)
 
 Step II:
+--------
 Use each Decision Factor to develop a Decision Question that asks a user his/her preferences of the Decision Factor.  Record the user Decision Answers and search the XML data to find all appropriate theaters that meet the user's decision. 
 
 The <strong>Question</strong> interface in the SPA.question package provides the basic structure, and we can easily develop the Decision Question, by simply extending it. 
@@ -94,7 +95,7 @@ Vision:
 -------
 SPA goal/vision is to create a true Fractal Process Automation Algorithm to automate all kinds of Processes. 
 
-Fractal Intelligence Algorithm is designed to mimic a human being’s subconscious mind.  For example, a human child learns to walk through practice,  and after he/she has learned to walk, the knowledge-processes are stored in the child's subconscious memory. So, the child can walk without consciously thinking about walking all the time. 
+Fractal Intelligence Algorithm is designed to mimic a human beingï¿½s subconscious mind.  For example, a human child learns to walk through practice,  and after he/she has learned to walk, the knowledge-processes are stored in the child's subconscious memory. So, the child can walk without consciously thinking about walking all the time. 
 
 However, to solve such complex process automation, we need a single generic SPA module that is able to automatically adapt to different Decision tasks.  So, we can instantiate hundreds of SPA modules at runtime, without manual programming; by simply feeding task artifact (characteristic) files to a generic SPA module. As you can see, the sub-SPA task package classes are pretty simple, which makes it possible to create a true Fractal SPA module.  A single/simple fractal algorithm to handle complex tasks' automation. 
 
