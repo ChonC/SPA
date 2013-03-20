@@ -101,6 +101,8 @@ However, to solve such complex process automation, we need a single generic SPA 
 
 
 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+Copyright &copy; 2001-2013 Chon Chung. License: Lesser General Public License (LGPL)
 
 
 
