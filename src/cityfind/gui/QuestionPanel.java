@@ -5,20 +5,19 @@ import cityfind.CityFinderJWS;
 import java.awt.*;
 
 /**
- * <p>Title: CityFinder</p>
  * <p>Description: Panel to display a question to collect a user decision choice. </p>
- * <p>Copyright: Copyright (c) 2002 Chon Chung</p>
+ * <p>Copyright: Copyright (c) 2001 - 2013 Chon Chung</p>
  * <p>Company: </p>
  * @author Chon Chung
- * @version Demo 0.6
+ * @version Demo 0.7
  */
 
 public class QuestionPanel extends Panel{
 
   BorderLayout borderLayout1 = new BorderLayout();
-  private Button nextBut = new Button();
+  private Button nextButton = new Button();
   Panel currentQuestion;
-  /** The parent frame reference to notify the received UI action event.  */
+  /** The parent frame reference for notifying the received UI action event.  */
   CityFinderJWS parentFrame;
 
   /**
@@ -43,14 +42,14 @@ public class QuestionPanel extends Panel{
               nextButtonPan.setLayout(null);
 
 
-              nextBut.setBounds(new Rectangle(47, 22, 114, 31));
-              nextBut.setFont(new java.awt.Font("Dialog", 1, 14));
+              nextButton.setBounds(new Rectangle(47, 22, 114, 31));
+              nextButton.setFont(new java.awt.Font("Dialog", 1, 14));
 
-              nextBut.setLabel("Next");
-              nextBut.setActionCommand(actionCommand);
+              nextButton.setLabel("Next");
+              nextButton.setActionCommand(actionCommand);
               //add the main-frame as the eventListenerObject, so the frame can receive this button event.
-              nextBut.addActionListener(parent);
-              nextButtonPan.add(nextBut);
+              nextButton.addActionListener(parent);
+              nextButtonPan.add(nextButton);
               nextButtonPan.setSize(242,130);
 
               this.add(nextButtonPan, BorderLayout.SOUTH);
@@ -86,6 +85,6 @@ public class QuestionPanel extends Panel{
    * @param actionCommand         ActionCommand for the 'Next' button.
    */
   public void setNextButActionCommand(String actionCommand){
-      nextBut.setActionCommand(actionCommand);
+      nextButton.setActionCommand(actionCommand);
   }
 }
