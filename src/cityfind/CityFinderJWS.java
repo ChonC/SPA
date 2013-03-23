@@ -19,10 +19,10 @@ import sun.awt.image.URLImageSource;
  *
  * <p>
  * <b>Description:</b>
- * 					This demo application lets a user find the best gas stations in Houston and Austin city 
- * 					based on his/her saved SPA-decisions.
+ * 		 	This demo application lets a user find the best gas stations in Houston and Austin city 
+ * 			based on his/her saved SPA-decisions.
  * <p>
- *  				It displays a map of Houston city downtown area, and
+ *  			It displays a map of Houston city downtown area, and
  *                 	provides 4 question panels to the user to collect his/her decisions.
  *                 	After the initial interactions (training), this application
  *                 	records and stores the user decisions for the one-click
