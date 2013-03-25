@@ -1,6 +1,6 @@
 package cityfind.gui;
 
-import cityfind.CityFinderJWS;
+import cityfind.CityFinder;
 
 import java.awt.*;
 
@@ -22,7 +22,7 @@ public class ToNextCityPanel extends Panel {
   Button searchBut = new Button();
   Label label4 = new Label();
 
-  public ToNextCityPanel(CityFinderJWS parent) {
+  public ToNextCityPanel(CityFinder parent) {
     try {
 		textArea.setBounds(new Rectangle(1, 38, 250, 190));
 		this.setLayout(null);
@@ -51,7 +51,7 @@ public class ToNextCityPanel extends Panel {
     catch(Exception e) {
       e.printStackTrace();
     }
-    searchBut.setActionCommand(CityFinderJWS.ONE_CLICK_EVENT);
+    searchBut.setActionCommand(CityFinder.ONE_CLICK_EVENT);
     searchBut.addActionListener(parent);
   }
 

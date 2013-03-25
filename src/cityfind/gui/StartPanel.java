@@ -1,6 +1,6 @@
 package cityfind.gui;
 
-import cityfind.CityFinderJWS;
+import cityfind.CityFinder;
 
 import java.awt.*;
 
@@ -27,7 +27,7 @@ public class StartPanel extends Panel implements I_MsgDisplay{
   TextArea statusText = new TextArea();
   Label label5 = new Label();
 
-  public StartPanel(CityFinderJWS parent) {
+  public StartPanel(CityFinder parent) {
     statusStr = new String();
     try {
 		label1.setFont(new java.awt.Font("Dialog", 1, 60));
@@ -52,7 +52,7 @@ public class StartPanel extends Panel implements I_MsgDisplay{
 		label4.setBounds(new Rectangle(61, 413, 458, 22));
 		statusText.setBackground(Color.blue);
 		statusText.setFont(new java.awt.Font("Dialog", 0, 12));
-		statusText.setForeground(Color.lightGray);
+		statusText.setForeground(Color.WHITE);
 		statusText.setBounds(new Rectangle(59, 168, 405, 128));
 		label5.setFont(new java.awt.Font("Dialog", 1, 14));
 		label5.setForeground(Color.lightGray);
@@ -70,7 +70,7 @@ public class StartPanel extends Panel implements I_MsgDisplay{
     catch(Exception e) {
       e.printStackTrace();
     }
-    startBut.setActionCommand(CityFinderJWS.START_APP_EVENT);
+    startBut.setActionCommand(CityFinder.START_APP_EVENT);
     startBut.addActionListener(parent);
   }
 

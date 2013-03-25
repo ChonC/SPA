@@ -1,6 +1,6 @@
 package cityfind.gui;
 
-import cityfind.CityFinderJWS;
+import cityfind.CityFinder;
 
 import java.awt.*;
 
@@ -18,7 +18,7 @@ public class QuestionPanel extends Panel{
   private Button nextButton = new Button();
   Panel currentQuestion;
   /** The parent frame reference for notifying the received UI action event.  */
-  CityFinderJWS parentFrame;
+  CityFinder parentFrame;
 
   /**
    * Constructor.
@@ -27,7 +27,7 @@ public class QuestionPanel extends Panel{
    * @param questionForDisplay    Question panel reference for display.
    * @param actionCommand         ActionCommand for the 'Next' button.
    */
-  public QuestionPanel(CityFinderJWS parent,
+  public QuestionPanel(CityFinder parent,
                        Panel questionForDisplay,
                        String actionCommand) {
     this.parentFrame = parent;
