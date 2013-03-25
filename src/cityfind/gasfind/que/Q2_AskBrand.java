@@ -78,9 +78,9 @@ public class Q2_AskBrand implements Question{
   /** Set the next question. */
   public void setNextQuestion(){
     if (userChoice == YES){
-        GasDecisionProcess.setNextQuestion(GasDecisionProcess.QUESTION_3);//set the next question of GasInteract process
+        GasDecisionProcess.setNextQuestion(GasDecisionProcess.QueStatus.Q3_CHOOSE_BRANDS);//set the next question of GasInteract process
     }else {
-        GasDecisionProcess.setNextQuestion(GasDecisionProcess.QUESTION_4);//set the next question of GasInteract process
+        GasDecisionProcess.setNextQuestion(GasDecisionProcess.QueStatus.Q4_PRICE_OR_DISTANCE);//set the next question of GasInteract process
     }
   }
   public String toString(){

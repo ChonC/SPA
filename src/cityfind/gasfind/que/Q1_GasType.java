@@ -101,7 +101,7 @@ public class Q1_GasType implements Question{
 
   /** Set the next question. */
   public void setNextQuestion(){
-      GasDecisionProcess.setNextQuestion(GasDecisionProcess.QUESTION_2);
+      GasDecisionProcess.setNextQuestion(GasDecisionProcess.QueStatus.Q2_ASK_BRAND);
   }
 
   /** Returns the product XML tag value as a string. */

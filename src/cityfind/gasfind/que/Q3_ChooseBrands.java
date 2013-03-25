@@ -185,9 +185,9 @@ public class Q3_ChooseBrands implements Question{
   /** Set the next question. */
   public void setNextQuestion(){
        if (!isUserResponded){
-          GasDecisionProcess.setNextQuestion(GasDecisionProcess.QUESTION_3);
+          GasDecisionProcess.setNextQuestion(GasDecisionProcess.QueStatus.Q3_CHOOSE_BRANDS);
        }else{
-          GasDecisionProcess.setNextQuestion(GasDecisionProcess.QUESTION_4);
+          GasDecisionProcess.setNextQuestion(GasDecisionProcess.QueStatus.Q4_PRICE_OR_DISTANCE);
        }
   }
   public String toString(){
