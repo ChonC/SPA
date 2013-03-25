@@ -15,43 +15,44 @@ import spa.ShopElement;
 import spa.question.Question;
 import sun.awt.image.URLImageSource;
 /**
- * <p>Title: CityFinder: Mobile city search demo application</p>
+ *<p>
+ *	Title: CityFinder: Mobile city search application demo</p>
  *
- * <p>
- * <b>Description:</b>
- * 		 	This demo application lets a user find the best gas stations in Houston and Austin city 
- * 			based on his/her saved SPA-decisions.
- * <p>
- *  			It displays a map of Houston city downtown area, and
- *                 	provides 4 question panels to the user to collect his/her decisions.
- *                 	After the initial interactions (training), this application
- *                 	records and stores the user decisions for the one-click
- *                 	automation search.   
  *<p>
- *                 	<b>CityFinder is powered by the SPA Algorithm.  https://github.com/chonc/spa</b>
+ *<b>Description:</b>
+ *	This application lets a user find the best gas stations in Houston and Austin city 
+ *	based on his/her saved SPA-decisions.
  *<p>
- *<b>Note:</b>     	The 'spa' and 'cityfind.gasfind' are the core packages.
- *                 	The 'spa' package provides the framework. And,
- *                 	'cityfind.gasfind' provides a working example of
- *                 	how to extend and utilize the super ('spa') package.
- *                 	cityfind.gasfind.GasDecisionProcess and cityfind.gasfind.sax.GasSAXManager classes 
- *                 	are the good places to start learning about this application.</p>
+ *	It displays a map of Houston city downtown area, and
+ *	provides 4 question panels to the user to collect his/her decisions.
+ *	After the initial interactions (training), this application
+ *	records and stores the user decisions for the one-click
+ *	automation search.   
+ *<p>
+ *<b>CityFinder is powered by the SPA Algorithm.  https://github.com/chonc/spa</b>
+ *<p>
+ *	Note:	The 'spa' and 'cityfind.gasfind' are the core packages.
+ *	The 'spa' package provides the framework. And,
+ *	'cityfind.gasfind' provides a working example of
+ *	how to extend and utilize the super ('spa') package.
+ *	cityfind.gasfind.GasDecisionProcess and cityfind.gasfind.sax.GasSAXManager classes 
+ *	are the good places to start learning about this application.</p>
  *                 
  *                 
  *<p> 
- *TODO            	1. put the network connection related methods into a separate class.
- *                 	2. Check the final data quality.  If the final data fail to meet the
- *                 	SPA data quality requirement, the application should do the more Decision processes.
+ *TODO	1. put the network connection related methods into a separate class.
+ *		2. Check the final data quality.  If the final data fail to meet the
+ *		SPA data quality requirement, the application should do the more Decision processes.
  *
  *<p> 
- *Copyright:    	Copyright (c) 2001-2013 Chon Chung.
- *@author       	Chon Chung
- *@version      	Demo 0.7
+ *Copyright:	Copyright (c) 2001-2013 Chon Chung.
+ *@author		Chon Chung
+ *@version		Demo 0.7
  *
  *<p>          		License: Lesser General Public License (LGPL)
  */
 
-public class CityFinderJWS extends Frame implements ActionListener{
+public class CityFinder extends Frame implements ActionListener{
 
   /** The start button click event.*/
   public static final String START_APP_EVENT = "Start";
@@ -59,7 +60,7 @@ public class CityFinderJWS extends Frame implements ActionListener{
   public static final String QUE_NEXT_EVENT = "Next Question";
   /** The completion of collecting user decisions event.*/
   public static final String QUE_DONE_EVENT = "Collection Done";
-  /** the one-click auto search button Event.*/
+  /** the one-click automation search button Event.*/
   public static final String ONE_CLICK_EVENT = "ONE CLICK";
 
 
@@ -76,8 +77,9 @@ public class CityFinderJWS extends Frame implements ActionListener{
   /** The start panel that displays this application GUI. */
   private StartPanel startPanel;
   /** URL, Internet connection validation status. */
-  private boolean url_status;
-  /** URL address of the resource files location*/
+  protected boolean url_status;
+
+/** URL address of the resource files location*/
   private String urlStr;
   /** Houston Map name */
   private String houstonMap;
@@ -99,7 +101,7 @@ public class CityFinderJWS extends Frame implements ActionListener{
    * @param austinMap   Austin Map file name
    * @param austinXML   Austin gas-stations information XML resource file
    */
-  public CityFinderJWS(String urlStr,
+  public CityFinder(String urlStr,
 						String houstonMap, String houstonXML,
 						String austinMap, String austinXML) {
 	  this.urlStr = urlStr;
@@ -120,6 +122,24 @@ public class CityFinderJWS extends Frame implements ActionListener{
 	  initializeHoustonSearch();
   }
 
+  /** Initializes the starting panel and its properties for the
+   *  Houston search.
+   */
+  private void initializeHoustonSearch(){
+	  startPanel = new StartPanel(this);
+	  startPanel.setSize(710,465);
+	  add(startPanel);
+	  this.pack();
+	  setTitle("CityFinder (current task: finds gas-stations near Galleria Mall in Houston, Texas U.S.A)");
+
+	  //check the URL connection availability by validating the destination image.
+	  url_status = this.isUrlAvailable(this.urlStr + this.houstonMap);
+	  //get Houston map
+	  boolean isMapReady = setHoustonMap(houstonMap);
+	  //if successfully got the map, loads the Houston business XML file source
+	  if (isMapReady) setSPA_Houston(houstonXML);
+  }
+  
   /**
    * Gets the shop XML data file and initializes the SPA process for the
    * Houston city search.
@@ -202,25 +222,6 @@ public class CityFinderJWS extends Frame implements ActionListener{
 			}
   }
 
-  /**
-   * By using user's recorded decisions, performs one-click automation search in
-   * Austin city area, and displays the results.
-   */
-  public void oneClickAutomation(){
-	  Question question;
-	  austinSearchPanel.appendText("\n\n>>One click automation search:");
-
-	  while(decisionProcess.getTaskStatus() != DecisionProcess.TASK_DONE) {
-		  question = decisionProcess.getNextQuestion();
-		  question.doAutoAction();
-		  austinSearchPanel.appendText("\n>>" + question.toString());
-		  austinSearchPanel.increaseProgressBar(20);//increase the bar size to indicate the progress
-	  }
-	  austinSearchPanel.increaseProgressBar(100);//increase the bar size to indicate the task completion.
-	  displayAustinResults();
-  }
-    
-
   /**Based on the receives actionEvents, performs the next step. */
   public void actionPerformed(ActionEvent evt){
 	//receives the start button event from the startPanel
@@ -248,11 +249,11 @@ public class CityFinderJWS extends Frame implements ActionListener{
 	  austinSearchPanel.setSize(255,430);
 	  this.add(austinSearchPanel);
 	  this.pack();
-	  boolean hasMap = setAustinMap(austinMap);
+	  boolean isMapReady = setAustinMap(austinMap);
 	  austinSearchPanel.increaseProgressBar(10); //increase the progress bar size
 
 	  //if successfully got the map, loads the Austin business XML file
-	  if (hasMap) {
+	  if (isMapReady) {
 		  setSPA_Austin(austinXML);
 		  austinSearchPanel.increaseProgressBar(10);
 		  setTitle("CityFinder (current task: finds gas-stations near the UT in Austin, Texas)");
@@ -261,23 +262,26 @@ public class CityFinderJWS extends Frame implements ActionListener{
 	}
   }
   
-  /** Initializes the starting panel and its properties for the
-   *  Houston search.
+  /**
+   * By using user's recorded decisions, performs one-click automation search in
+   * Austin city area, and displays the results.
    */
-  private void initializeHoustonSearch(){
-	  startPanel = new StartPanel(this);
-	  startPanel.setSize(710,465);
-	  add(startPanel);
-	  this.pack();
-	  setTitle("CityFinder (current task: finds gas-stations near Galleria Mall in Houston, Texas U.S.A)");
+  public void oneClickAutomation(){
+	  Question question;
+	  austinSearchPanel.appendText("\n\n>>One click automation search:");
 
-	  //check the URL connection availability status by validating the destination image.
-	  url_status = this.isUrlAvailable(this.urlStr + this.houstonMap);
-	  //get Houston map
-	  boolean hasMap = setHoustonMap(houstonMap);
-	  //if successfully got the map, loads the Houston business XML file source
-	  if (hasMap) setSPA_Houston(houstonXML);
+	  while(decisionProcess.getTaskStatus() != DecisionProcess.TASK_DONE) {
+		  question = decisionProcess.getNextQuestion();
+		  question.doAutoAction();
+		  austinSearchPanel.appendText("\n>>" + question.toString());
+		  austinSearchPanel.increaseProgressBar(20);//increase the bar size to indicate the progress
+	  }
+	  austinSearchPanel.increaseProgressBar(100);//increase the bar size to indicate the task completion.
+	  displayAustinResults();
   }
+    
+
+  
 
   /** Gets the Houston city map, and puts it on a Canvas to display. */
   private boolean setHoustonMap(String mapName){
@@ -492,17 +496,21 @@ public class CityFinderJWS extends Frame implements ActionListener{
 	return "CityFinder (mobile navigation search engine) demo application. \n SPA: \n " +
 		   decisionProcess.toString();
   }
+  
+  public boolean isUrl_status() {
+	return url_status;
+  }
 
   /** Start this CityFinder Demo application.  This application can be run as a regular application
-   *  on a desktop computer or JavaWebStart application on web.  */
+   *  on a desktop computer.  */
   public static void main(String args[]){
-	CityFinderJWS cityFinder = new CityFinderJWS("http://chon.techliminal.com/cityfind/",
+	CityFinder cityFinder = new CityFinder("http://chon.techliminal.com/cityfind/",
 												   "houstonMap.gif",
 												   "houstonXML.txt",
 												   "austinMap.gif",
 												   "austinXML.txt");
 		
 	cityFinder.setSize(740,510);
-	cityFinder.show();
+	cityFinder.setVisible(true); 
   }
 }
