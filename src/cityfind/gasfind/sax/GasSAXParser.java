@@ -1,6 +1,7 @@
 package cityfind.gasfind.sax;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.xml.parsers.SAXParserFactory;
@@ -47,6 +48,11 @@ public class GasSAXParser extends ShopSAXParser{
 	private String curTagName = null;  
 	/** current read tag value */
 	private String charactersValue = ""; 
+	
+	/** last tag id: there is a Java SAX Bug, which calls endElement() twice 
+	 * at the last Tag, so it will be used to check the condition.  
+	 *  TODO find what causes the bug */ 
+	private int lastTagId = GasXMLTag.TAG_ID_UNKNOWN; 
     
 			
 	/** Constructor.  
@@ -73,7 +79,7 @@ public class GasSAXParser extends ShopSAXParser{
 	  public void startDocument() {
 	    super.startDocument();
 	      
-	    if (gm.getShopList() != null) gm.lastShopList = (Vector) gm.getShopList().clone();
+	    if (gm.getShopList() != null) gm.lastShopList = (ArrayList<Object>) gm.getShopList().clone();
 	  }
 
 	   /**
@@ -112,7 +118,7 @@ public class GasSAXParser extends ShopSAXParser{
 	      }else if(gm.getFindCriteria() == gc.FIND_SHOPLIST_INFO && gm.isTargetEntity() == true) {
 	          for (int i = 0; i < atts.getLength(); i++){
 	              if (atts.getQName(i).equals("id")){
-	            	  gm.getShopList().addElement(new GasElement());
+	            	  gm.getShopList().add(new GasElement());
 
 	              }
 	          }
@@ -173,19 +179,19 @@ public class GasSAXParser extends ShopSAXParser{
 			          gm.gasShopInfo.setElementValue(gm.theCurrentTagId, charactersValue);//add the store information by each XML items.
 			      }else if (gm.getFindCriteria() == gc.FIND_SHOPLIST_INFO && gm.isTargetEntity() == true){
 			          if(gm.theCurrentTagId == GasXMLTag.TAG_ID_NAME){
-			              ((GasElement)gm.getShopList().elementAt(gm.getTargetIndex() -1)).setId(String.valueOf(gm.getCurrentID()));
+			              ((GasElement)gm.getShopList().get(gm.getTargetIndex() -1)).setId(String.valueOf(gm.getCurrentID()));
 			          }
 
-			    	  /**Note: there is a Java SAX Bug, which calls endElement() twice at the last "<y>" tag.  
-			    	           So, the following condition is a quick fix.  @Todo find what cause the bug */
-			          if (!(gm.theCurrentTagId == GasXMLTag.TAG_ID_Y && charactersValue.equals(""))){
-			        	  ((GasElement)gm.getShopList().elementAt(gm.getTargetIndex() -1)).setElementValue(gm.theCurrentTagId, charactersValue);
+			    	  /**Note: there is a Java SAX Bug, which calls endElement() twice at the last tag.  
+			    	           So, the following condition is a quick fix.  TODO find what causes the bug */
+			          if (gm.theCurrentTagId != lastTagId && !charactersValue.equals("")){
+			        	  ((GasElement)gm.getShopList().get(gm.getTargetIndex() -1)).setElementValue(gm.theCurrentTagId, charactersValue);
 			          }
 			      }
 		      
 		    	
 		      charactersValue = ""; //reset at the end of each tag element
-		            
+		      lastTagId = gm.theCurrentTagId;       
 		      
 	   }
 

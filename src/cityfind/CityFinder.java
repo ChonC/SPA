@@ -7,12 +7,20 @@ import cityfind.gui.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.lang.ClassLoader;
 import javax.swing.ImageIcon;
+
+import org.xml.sax.InputSource;
 
 import spa.DecisionProcess;
 import spa.ShopElement;
 import spa.question.Question;
+import spa.util.TimeTool;
 import sun.awt.image.URLImageSource;
 /**
  *<p>
@@ -36,7 +44,9 @@ import sun.awt.image.URLImageSource;
  *	'cityfind.gasfind' provides a working example of
  *	how to extend and utilize the super ('spa') package.
  *	cityfind.gasfind.GasDecisionProcess and cityfind.gasfind.sax.GasSAXManager classes 
- *	are the good places to start learning about this application.</p>
+ *	are the good places to start learning about this application.
+ *@see spa.*;
+ *@see cityfind.gasfind.*; 
  *                 
  *                 
  *<p> 
@@ -52,6 +62,10 @@ import sun.awt.image.URLImageSource;
  *<p>          		License: Lesser General Public License (LGPL)
  */
 
+/**
+ * @author owner
+ *
+ */
 public class CityFinder extends Frame implements ActionListener{
 
   /** The start button click event.*/
@@ -119,6 +133,7 @@ public class CityFinder extends Frame implements ActionListener{
 		  }
 	  });
 
+	  this.setBackground(Color.decode("#385A97")); 
 	  initializeHoustonSearch();
   }
 
@@ -270,17 +285,81 @@ public class CityFinder extends Frame implements ActionListener{
 	  Question question;
 	  austinSearchPanel.appendText("\n\n>>One click automation search:");
 
+	  TimeTool timeTool = new TimeTool(); 
+	  timeTool.setStartTime();
 	  while(decisionProcess.getTaskStatus() != DecisionProcess.TASK_DONE) {
 		  question = decisionProcess.getNextQuestion();
 		  question.doAutoAction();
 		  austinSearchPanel.appendText("\n>>" + question.toString());
 		  austinSearchPanel.increaseProgressBar(20);//increase the bar size to indicate the progress
 	  }
+	  timeTool.setFinishTime(); 
+	  austinSearchPanel.appendText("\n>>One click automation completed:\n SPA process time: " + 
+			                        timeTool.getElapsedTime() + "(\"mm:ss:SSS\")");
 	  austinSearchPanel.increaseProgressBar(100);//increase the bar size to indicate the task completion.
 	  displayAustinResults();
   }
     
 
+  /** Displays the Houston city search results.  It displays the matched
+   *  gas stations on the Houston map as red dots, the rank number next to the each dot,
+   *  and displays the store's contact information on the TextArea of the right panel.
+   **/
+  protected void displayHoustonResults(){
+	  ShopElement[] finalShopListInfo= decisionProcess.getShopListInfo();
+	  String storeInfo = "Total number of Stores: " + finalShopListInfo.length + "\n";
+	  
+	  if (finalShopListInfo != null){
+		  for (int i=0;i<finalShopListInfo.length;i++){
+			  storeInfo += "\n " + (i+1) + "). Store: \n=============================\n" +
+							finalShopListInfo[i].toString() + "\n";
+				 
+			  addStoreToMap(Integer.parseInt(finalShopListInfo[i].x),
+							Integer.parseInt(finalShopListInfo[i].y),
+							i+1,
+							Integer.parseInt(finalShopListInfo[i].id));
+		  }
+	  }else{
+		  storeInfo += "Store: \n=============================\n" +
+			   " No matching shop.  "; 		  
+	  }
+
+	  mapCanvas.repaint();
+	  toNextCityPanel = new ToNextCityPanel(this);
+	  toNextCityPanel.setText(storeInfo);
+	  this.remove(questionPanel);
+	  toNextCityPanel.setSize(255,430);
+	  this.add(toNextCityPanel);
+	  this.pack();
+
+  }
+
+  /** Displays the Austin city search results.  **/
+  protected void displayAustinResults(){
+
+	  ShopElement[] shopListInfo= decisionProcess.getShopListInfo();
+	  String storeInfo = "Total number of Stores: " + shopListInfo.length + "\n";
+
+	  if (shopListInfo != null){
+		  for (int i=0;i<shopListInfo.length;i++){
+			  storeInfo += "\n " + (i+1) + "). Store: \n=============================\n" +
+							shopListInfo[i].toString() + "\n";
+			  addStoreToMap(Integer.parseInt(shopListInfo[i].x),
+							Integer.parseInt(shopListInfo[i].y),
+							i+1,
+							Integer.parseInt(shopListInfo[i].id));
+		  }
+	  }else{
+		  storeInfo += "Store: \n=============================\n" +
+		  			   " No matching shop.  "; 
+	  }
+
+	  mapCanvas.repaint();
+	  austinSearchPanel.appendText("\n\n================================\n" +
+							  "Austin one-click Seach Result\n");
+	  austinSearchPanel.appendText(storeInfo);
+	  austinSearchPanel.displayFinalText();
+  }
   
 
   /** Gets the Houston city map, and puts it on a Canvas to display. */
@@ -399,7 +478,8 @@ public class CityFinder extends Frame implements ActionListener{
 	ImageIcon imageIcon;
 	
 			msgScreen.appendText(">>Image Source: imgName = "+ imgName + "\n");
-			imageIcon = new ImageIcon(imgName);
+	      	String imgPath = System.getProperty("user.dir") + "\\src\\" + imgName; 
+			imageIcon = new ImageIcon(imgPath);
 			
 	return imageIcon.getImage();  
   }
@@ -441,59 +521,10 @@ public class CityFinder extends Frame implements ActionListener{
 	  this.pack();
   }
 
-  /** Displays the Houston city search results.  It displays the matched
-   *  gas stations on the Houston map as red dots, the rank number next to the each dot,
-   *  and displays the store's contact information on the TextArea of the right panel.
-   **/
-  protected void displayHoustonResults(){
-	  ShopElement[] finalShopListInfo= decisionProcess.getShopListInfo();
-	  String storeInfo = "Total number of Stores: " + finalShopListInfo.length + "\n";
-	  
-	  for (int i=0;i<finalShopListInfo.length;i++){
-		  storeInfo += "\n " + (i+1) + "). Store: \n=============================\n" +
-						finalShopListInfo[i].toString() + "\n";
-			 
-		  addStoreToMap(Integer.parseInt(finalShopListInfo[i].x),
-						Integer.parseInt(finalShopListInfo[i].y),
-						i+1,
-						Integer.parseInt(finalShopListInfo[i].id));
-	  }
-
-	  mapCanvas.repaint();
-	  toNextCityPanel = new ToNextCityPanel(this);
-	  toNextCityPanel.setText(storeInfo);
-	  this.remove(questionPanel);
-	  toNextCityPanel.setSize(255,430);
-	  this.add(toNextCityPanel);
-	  this.pack();
-
-  }
-
-  /** Displays the Austin city search results.  **/
-  protected void displayAustinResults(){
-
-	  ShopElement[] bizInfoList= decisionProcess.getShopListInfo();
-	  String storeInfo = "Total number of Stores: " + bizInfoList.length + "\n";
-
-	  for (int i=0;i<bizInfoList.length;i++){
-		  storeInfo += "\n " + (i+1) + "). Store: \n=============================\n" +
-						bizInfoList[i].toString() + "\n";
-		  addStoreToMap(Integer.parseInt(bizInfoList[i].x),
-						Integer.parseInt(bizInfoList[i].y),
-						i+1,
-						Integer.parseInt(bizInfoList[i].id));
-	  }
-
-	  mapCanvas.repaint();
-	  austinSearchPanel.appendText("\n\n================================\n" +
-							  "Austin one-click Seach Result\n");
-	  austinSearchPanel.appendText(storeInfo);
-	  austinSearchPanel.displayFinalText();
-  }
 
   /** Returns a string description */
   public String toString(){
-	return "CityFinder (mobile navigation search engine) demo application. \n SPA: \n " +
+	return "CityFinder (mobile SPA automation search engine) demo application. \n SPA: \n " +
 		   decisionProcess.toString();
   }
   
@@ -501,7 +532,7 @@ public class CityFinder extends Frame implements ActionListener{
 	return url_status;
   }
 
-  /** Start this CityFinder Demo application.  This application can be run as a regular application
+  /** Start this CityFinder Demo application.  This application can be run as a regular java application
    *  on a desktop computer.  */
   public static void main(String args[]){
 	CityFinder cityFinder = new CityFinder("http://chon.techliminal.com/cityfind/",

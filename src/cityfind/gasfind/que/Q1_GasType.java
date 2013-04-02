@@ -83,10 +83,10 @@ public class Q1_GasType implements Question{
    *  @toDo: 1. if (GasInteract.isBizListEmpty()), ask a user to make another choice. */
   public void doAction(){
 	  GasDecisionProcess.setShopList(gasSAXManager.findShopHasGas(getGasType(userChoice)));
-
- 	  //@Todo if (GasDecisionProcess.isShopListEmpty()) <--should check the condition. if true, we should ask a user to make another choice.
-
+ 	  
+ 	  //TODO if (GasDecisionProcess.isShopListEmpty()) <--should check the condition. if true, we should ask a user to make another choice.
       GasDecisionProcess.addAnswerToDPH(Integer.toString(ID), String.valueOf(userChoice)); //Stores the user answer
+      
       setNextQuestion();
   }
 

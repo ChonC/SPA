@@ -9,6 +9,7 @@ import spa.sax.ShopSAXManager;
 import spa.sax.ShopSAX_Command;
 import spa.util.ShopVO;
 
+import java.util.ArrayList;
 import java.util.Vector;
 import java.io.*;
 import java.net.*;//<-- for URL reading
@@ -72,7 +73,7 @@ import java.net.*;//<-- for URL reading
 public class GasSAXManager extends ShopSAXManager {
 	
   /** Stores the last Shop-entity lists for the undo process */
-  static protected Vector lastShopList;
+  static protected ArrayList<Object> lastShopList;
   /** stores the current XML tag id. */
   static protected  int theCurrentTagId;
   /** the current shop information reference. */
@@ -127,7 +128,7 @@ public class GasSAXManager extends ShopSAXManager {
    * @param xmlSource  the XML datafile source.
    * @param shopNode    The main business entity XML node. i.e. '<store/>' */
   public void reset(String _xmlSource, String _shopNode){
-    super.resetParamsForNewSearch(_xmlSource, _shopNode);
+    super.resetForNewSearch(_xmlSource, _shopNode);
     gasSAXParser.reset(null, _xmlSource); 
     lastShopList = null;
     theCurrentTagId = 0;
@@ -142,7 +143,7 @@ public class GasSAXManager extends ShopSAXManager {
     * @param xmlSource    local XML datafile source for when a url connection is unavailable.  This is only for demo.  When a network connection is not available, this file is used for demo.
     * @param shopNode       The main business entity XML node. i.e. '<store/>' */
   public void reset(URL _url, String _xmlSource, String _shopNode){
-    super.resetParamsForNewSearch(_xmlSource, _shopNode);
+    super.resetForNewSearch(_xmlSource, _shopNode);
     gasSAXParser.reset(_url, _xmlSource); 
     lastShopList = null;
     theCurrentTagId = 0;
@@ -173,7 +174,7 @@ public class GasSAXManager extends ShopSAXManager {
     readXML_data(); 
 
         String[] duplicateArray = new String[shopList.size()];
-        shopList.copyInto(duplicateArray);
+        shopList.toArray(duplicateArray);
     return duplicateArray;
   }
   /** Finds all stores that sells the gas type from the given selectedShopList.
@@ -188,7 +189,7 @@ public class GasSAXManager extends ShopSAXManager {
     readXML_data(); 
 
         String[] duplicateArray = new String[shopList.size()];
-        shopList.copyInto(duplicateArray);
+        shopList.toArray(duplicateArray);
     return duplicateArray;
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -198,7 +199,7 @@ public class GasSAXManager extends ShopSAXManager {
     readXML_data(); 
     
         String[] duplicateArray = new String[shopList.size()];
-        shopList.copyInto(duplicateArray);
+        shopList.toArray(duplicateArray);
     return duplicateArray;
   }
   /** Finds stores with a certain brand. ex) Chevron, Exxon, Shell, or Texaco */
@@ -207,7 +208,7 @@ public class GasSAXManager extends ShopSAXManager {
     readXML_data(); 
 
         String[] duplicateArray = new String[shopList.size()];
-        shopList.copyInto(duplicateArray);
+        shopList.toArray(duplicateArray);
     return duplicateArray;
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -267,16 +268,19 @@ public class GasSAXManager extends ShopSAXManager {
     return gasShopInfo.toString();
   }
 
-  /** Extract the shops' information from the XML source. */
+  /** Extract the shops' information from the XML source. 
+   * 
+   * @param _shopIdList        shop-id-list to get the each shopElememt information
+   * @return ShopElement[]  	Returns ShopElement[] or null */
   public ShopElement[] getShopListInfo(String[] _shopIdList){
 
-      if(_shopIdList.length == 0) return null;
+      if(_shopIdList.length == 0) return null; 
 
       super.entityListInfo(_shopIdList);
       readXML_data(); 
       
       ShopElement[] tempList = new GasElement[_shopIdList.length];
-      shopList.copyInto(tempList);
+      shopList.toArray(tempList);
 
       return tempList;
 

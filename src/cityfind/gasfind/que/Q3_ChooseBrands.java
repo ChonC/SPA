@@ -108,25 +108,25 @@ public class Q3_ChooseBrands implements Question{
   public void doAction(){
 
       if (isUserResponded){
-          String[] oldBizList = GasDecisionProcess.getShopListCopy();
-
+          String[] oldShopList = GasDecisionProcess.getShopListCopy();
+          
           GasDecisionProcess.resetShopList();
           ArrayList<String> ans = new ArrayList<String>(4);
 
           if (isChevron) {
-              GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Chevron", oldBizList));
+              GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Chevron", oldShopList));
               ans.add(Integer.toString(CHEVRON));
           }
           if (isExxon) {
-              GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Exxon", oldBizList));
+              GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Exxon", oldShopList));
               ans.add(Integer.toString(EXXON));
           }
           if (isShell) {
-              GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Shell", oldBizList));
+              GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Shell", oldShopList));
               ans.add(Integer.toString(SHELL));
           }
           if (isTexaco) {
-              GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Texaco", oldBizList));
+              GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Texaco", oldShopList));
               ans.add(Integer.toString(TEXACO));
           }
 
@@ -137,7 +137,6 @@ public class Q3_ChooseBrands implements Question{
           }
 
           GasDecisionProcess.addAnswersToDPH(Integer.toString(ID), answers);
-
       }
       setNextQuestion();
   }
@@ -163,22 +162,25 @@ public class Q3_ChooseBrands implements Question{
           if (answer == TEXACO) isTexaco = true;
       }
 
-      String[] oldBizList = GasDecisionProcess.getShopListCopy();
+      String[] oldShopList = GasDecisionProcess.getShopListCopy();
+      
+ 	  
+ 	  
       GasDecisionProcess.resetShopList();
 
       if (isChevron) {
-          GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Chevron", oldBizList));
+          GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Chevron", oldShopList));
       }
       if (isExxon) {
-          GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Exxon", oldBizList));
+          GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Exxon", oldShopList));
       }
       if (isShell) {
-          GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Shell", oldBizList));
+          GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Shell", oldShopList));
       }
       if (isTexaco) {
-          GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Texaco", oldBizList));
+          GasDecisionProcess.addToShopList(gasSAXManager.findBrandShops("Texaco", oldShopList));
       }
-
+	      
       setNextQuestion();
   }
 
@@ -191,7 +193,7 @@ public class Q3_ChooseBrands implements Question{
        }
   }
   public String toString(){
-      return "Question 3 (DF:" + DF + " ): finds the user prefered brand.";
+      return "Q3_ChooseBrands (DF:" + DF + " ): finds the user prefered brands.";
   }
 
 }

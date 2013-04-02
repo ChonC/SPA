@@ -40,15 +40,19 @@ public class QP3_ChooseBrands extends Panel  implements Question, ItemListener{
       try {
 		Label label1 = new Label(new String("3/4 Choose Brands:"));
 		cBox_Chevron = new Checkbox(Q3_ChooseBrands.CHEVRON_STR, false);
+		cBox_Chevron.setForeground(Color.WHITE);
 		cBox_Exxon = new Checkbox(Q3_ChooseBrands.EXXON_STR, false);
+		cBox_Exxon.setForeground(Color.WHITE);
 		cBox_Shell = new Checkbox(Q3_ChooseBrands.SHELL_STR, false);
+		cBox_Shell.setForeground(Color.WHITE);
 		cBox_Texaco = new Checkbox(Q3_ChooseBrands.TEXACO_STR, false);
+		cBox_Texaco.setForeground(Color.WHITE);
 		cBox_Chevron.addItemListener(this); //***Event
 		cBox_Exxon.addItemListener(this);
 		cBox_Shell.addItemListener(this);
 		cBox_Texaco.addItemListener(this);
 
-		  label1.setForeground(Color.black);
+		  label1.setForeground(Color.WHITE);
 		  label1.setBounds(new Rectangle(25, 53, 160, 30));
 		  this.setLayout(null);
 

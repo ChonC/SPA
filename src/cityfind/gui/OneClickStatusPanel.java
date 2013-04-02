@@ -26,18 +26,18 @@ public class OneClickStatusPanel extends Panel implements I_MsgDisplay{
     try {
 		label.setText("Progress:");
 		label.setBounds(new Rectangle(5, 5, 102, 20));
-		label.setForeground(Color.blue);
+		label.setForeground(Color.decode("#8ED6DE"));
 		label.setFont(new java.awt.Font("Dialog", 1, 14));
 		this.setLayout(null);
 		progressBar.setBounds(new Rectangle(5, 29, 245, 15));
 		textArea.setBounds(new Rectangle(5, 68, 247, 216));
 		donelabel.setFont(new java.awt.Font("Dialog", 0, 14));
-		donelabel.setForeground(Color.blue);
+		donelabel.setForeground(Color.decode("#8ED6DE"));
 		donelabel.setText("Process complete.");
 		donelabel.setVisible(false);
 		donelabel.setBounds(new Rectangle(14, 293, 144, 28));
 		oneClicklabel.setFont(new java.awt.Font("Dialog", 1, 14));
-		oneClicklabel.setForeground(Color.blue);
+		oneClicklabel.setForeground(Color.decode("#8ED6DE"));
 		oneClicklabel.setText("Wherever you are, ");
 		oneClicklabel.setBounds(new Rectangle(13, 337, 204, 26));
 		oneClicklabel.setVisible(false);
@@ -45,7 +45,7 @@ public class OneClickStatusPanel extends Panel implements I_MsgDisplay{
 		oneClicklabel2.setText("just one click Automation!");
 		oneClicklabel2.setVisible(false);
 		oneClicklabel2.setFont(new java.awt.Font("Dialog", 1, 14));
-		oneClicklabel2.setForeground(Color.blue);
+		oneClicklabel2.setForeground(Color.decode("#8ED6DE"));
 		this.add(label, null);
 		this.add(progressBar, null);
 		this.add(textArea, null);

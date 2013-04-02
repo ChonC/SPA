@@ -68,8 +68,8 @@ public class Q4_PriceDistance implements Question{
     //*** have to check if it is sorted ************************************************************
 
 
-      String[] oldShopList = GasDecisionProcess.getShopListCopy();
-
+      String[] oldShopList = GasDecisionProcess.getShopListCopy();      
+      
       GasDecisionProcess.resetShopList(); //Set the ShopList to null  
       if (userChoice == 1) {
           DPHreader dphReader = DPHreader.getInstance();
@@ -87,7 +87,8 @@ public class Q4_PriceDistance implements Question{
 
       GasDecisionProcess.addAnswerToDPH(Integer.toString(ID),String.valueOf(userChoice));
 
-      GasDecisionProcess.setTaskStatus(GasDecisionProcess.TASK_DONE);
+      GasDecisionProcess.setTaskStatus(GasDecisionProcess.TASK_DONE); 
+ 	  
       setNextQuestion();
 
   }
@@ -98,7 +99,7 @@ public class Q4_PriceDistance implements Question{
   public void doAutoAction(){
 
       String[] oldBizList = GasDecisionProcess.getShopListCopy();
-
+ 	  
       GasDecisionProcess.resetShopList(); //Set the BizList to null ************************* Should change name
       DPHreader dphReader = DPHreader.getInstance();
       userChoice = Integer.parseInt(dphReader.readAnswer(GasDecisionProcess.getUserDPH(), ID));
@@ -114,8 +115,8 @@ public class Q4_PriceDistance implements Question{
           GasDecisionProcess.setSorted(true); //<-- Notify that the current data has been sorted.
       }
 		
-	  GasDecisionProcess.setTaskStatus(GasDecisionProcess.TASK_DONE);
-	  
+	  GasDecisionProcess.setTaskStatus(GasDecisionProcess.TASK_DONE);   
+ 	 
   }
 
 
@@ -125,6 +126,6 @@ public class Q4_PriceDistance implements Question{
   }
 
   public String toString(){
-      return "Question 4 (2 DFs:" + DF + " ): Indentify the user prefered DF, price or distance.";
+      return "Q4_PriceDistance (2 DFs:" + DF + " ): Which do you prefer, price or distance.";
   }
 }

@@ -54,9 +54,13 @@ public class QP1_GasType extends Panel implements Question, ItemListener{
 		Label label4 = new Label(new String("1/4.  First, what type of gas?"));
 		CheckboxGroup gasTypeGroup = new CheckboxGroup();
 		cBoxUnlead = new Checkbox(Q1_GasType.UNLEAD_STR, gasTypeGroup, true);
+		cBoxUnlead.setForeground(Color.WHITE); 
 		cBoxPlus = new Checkbox(Q1_GasType.PLUS_UNLEAD_STR, gasTypeGroup, false);
+		cBoxPlus.setForeground(Color.WHITE); 
 		cBoxPremium = new Checkbox(Q1_GasType.PREMIUM_UNLEAD_STR, gasTypeGroup, false);
+		cBoxPremium.setForeground(Color.WHITE); ; 
 		cBoxDiesel = new Checkbox(Q1_GasType.DIESEL_STR, false);
+		cBoxDiesel.setForeground(Color.WHITE); 
 		cBoxUnlead.addItemListener(this); //***Event
 		cBoxPlus.addItemListener(this);
 		cBoxPremium.addItemListener(this);
@@ -65,13 +69,13 @@ public class QP1_GasType extends Panel implements Question, ItemListener{
 
 		  this.setLayout(null);
 
-		  label1.setForeground(Color.blue);
+		  label1.setForeground(Color.YELLOW);
 		  label1.setBounds(new Rectangle(14, 12, 187, 22));
-		  label2.setForeground(Color.blue);
+		  label2.setForeground(Color.YELLOW);
 		  label2.setBounds(new Rectangle(17, 35, 168, 21));
-		  label3.setForeground(Color.blue);
+		  label3.setForeground(Color.YELLOW);
 		  label3.setBounds(new Rectangle(17, 54, 93, 21));
-		  label4.setForeground(Color.black);
+		  label4.setForeground(Color.WHITE);
 		  label4.setBounds(new Rectangle(17, 94, 168, 21));
 
 

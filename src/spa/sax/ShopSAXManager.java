@@ -3,10 +3,13 @@ package spa.sax;
 import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
 
+import cityfind.gasfind.GasDecisionProcess;
+
 import spa.ShopElement;
 import spa.util.Sort;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Vector;
 
 
@@ -57,9 +60,9 @@ public class ShopSAXManager {
 
   /** the location of the XML shop data file (either a remote url, or local file).  */
   static protected String xmlSource;
-  /** Shop list to store all the shop-elements (id) from the
-   *  XML data file.  Shops-list those meet the current search criteria. */
-  static protected Vector shopList;
+  /** Shop ArrayList Object to store all the Shops-list those meet the current search criteria. 
+   * It may collect String[id], String[id, value], or ShopElement Object. */
+  static protected ArrayList<Object> shopList;
   /** The current selected shop-elements ID lists for further searching or comparison. */
   static protected String[] selectedShopList;
   /** Indicates the current searching criteria. It's value can be one of the 
@@ -117,7 +120,7 @@ public class ShopSAXManager {
   public ShopSAXManager(String _xmlSource, String _shopNode){
       xmlSource = _xmlSource;
       shopMainNode = _shopNode;      
-      shopList = new Vector(20, 10);// initialCapacity, capacityIncrement
+      shopList = new ArrayList<Object>(); 
       sax_command = new ShopSAX_Command(); 
       entityTotalShops();
   }
@@ -125,10 +128,10 @@ public class ShopSAXManager {
   /** Resets this class instance with a different XML data source.  This method
    *  is used to conduct a new search from a different XML data source. 
    * */
-  static protected void resetParamsForNewSearch(String _xmlSource, String _shopNode){
+  static protected void resetForNewSearch(String _xmlSource, String _shopNode){
       xmlSource = _xmlSource;
       shopMainNode = _shopNode;
-      shopList = new Vector(20, 10);// initialCapacity, capacityIncrement
+      shopList =  new ArrayList<Object>(); 
       totalEntity = 0;
       //~~~~~~~~~~~~~~~~~~~
       currentID = null;
@@ -148,14 +151,15 @@ public class ShopSAXManager {
       entityTotalShops();
   }
 
-  /** Resets this class properties to their default values for the next search.  This method
-   *  is used to conduct a different search from the same XML data source.
+  /** Resets this properties to their default values for the next search from the same XML data source.
+   *  
+   *  Note: do not reset selectedShopList, if you want to further search from the last select list
    **/
-  static protected void resetParamsForNextSearch(){
+  static protected void resetForNextSearch(){
       findCriteria = sax_command.FIND_NOTHING;
-      shopList = new Vector(20, 10);
+      shopList =  new ArrayList<Object>(); 
       currentID = null;
-      selectedShopList = null; //*** Check this, it might erase the selectedShopList  *********************************************
+      //selectedShopList = Note: do not reset selectedShopList, if you want to further search from the last select list
       targetIndex = 0;
       targetNode = null;
       targetValue = null;
@@ -170,7 +174,29 @@ public class ShopSAXManager {
   }
   
 
-  static public Vector getShopList() {
+  /** Resets this properties to their default values for the fresh new search from the same XML data source.
+   *  It also reset selectedShopList (last searched list). 
+   **/
+  static protected void resetForFreshSearch(){
+      findCriteria = sax_command.FIND_NOTHING;
+      shopList =  new ArrayList<Object>(); 
+      currentID = null;
+      selectedShopList = null; //reset for fresh next search
+      targetIndex = 0;
+      targetNode = null;
+      targetValue = null;
+      b_TargetEntity = false;
+      b_TargetNode = false;
+      valueType = null;
+      matchingCriteria = sax_command.VALUE_NULL;
+      entityIndex = 0;
+      b_FindLowest = true;
+      b_UsingLastShopList = false;
+      shopList_IdValues = null;
+  }
+  
+
+  static public ArrayList<Object> getShopList() {
   	return shopList;
   }
   static public String getXmlSource() {
@@ -249,7 +275,7 @@ public class ShopSAXManager {
    * a remote Web server, the search method stores the ID of
    * the business entity to the 'shopList' by using this method. */
   static protected void addEntityToShopList(String id){
-    shopList.addElement(id);
+    shopList.add(id);
   }
 
   /**
@@ -286,12 +312,13 @@ public class ShopSAXManager {
   }
 
   /**
-   * From the given elements ID list, search/read the each elements properties' information from the XML data source.<br><br>
+   * From the given elements ID list, search/read the each elements properties' information from the XML data source.
+   * Stores them as ShopElement[], and put into the ShopSAXManager.shopList. 
    * 
    * A Searching method (give a search term/direction).
    */
   static  protected void entityListInfo(String[] _entityIds){
-        resetParamsForNextSearch();
+        resetForNextSearch();
 
         findCriteria = sax_command.FIND_SHOPLIST_INFO;
         selectedShopList = _entityIds;
@@ -304,7 +331,10 @@ public class ShopSAXManager {
    *  information to a user.  It should further implement the 
    *  'entityListInfo()' method for ease of use. 
    *  
-   *  @todo test this method ***************************************************************************************
+   * @param _storeIdList        store-id-list to get the each shopElememt information
+   * @return ShopElement[]  	Returns ShopElement[] or null
+   *  
+   * TODO test this method ***************************************************************************************
    *  */
   protected ShopElement[] getShopListInfo(String[] _storeIdList){
 
@@ -312,7 +342,7 @@ public class ShopSAXManager {
 
       entityListInfo(_storeIdList);
       ShopElement[] tempList = new ShopElement[_storeIdList.length];
-      shopList.copyInto(tempList);
+      shopList.toArray(tempList);
 
       return tempList;
   }
@@ -344,7 +374,7 @@ public class ShopSAXManager {
    */
   static  protected void entityHasNode(String _targetNode,
                                   String[] _selectedShopList){
-        resetParamsForNextSearch();
+        resetForNextSearch();
         findCriteria = sax_command.FIND_ELEMENT;
         if (_selectedShopList != null) {
           selectedShopList = _selectedShopList;
@@ -410,11 +440,11 @@ public class ShopSAXManager {
                                     int _matchingCriteria, /* VALUE_EXACT, VALUE_EQUAL_OR_BIGGER, VALUE_EQUAL_OR_SMALLER */
                                     String[] _selectedShopList){ //Vector should be iterator
 
-        resetParamsForNextSearch();
+        resetForNextSearch();
         //set the sorting properties so sax-parser can go through the XML list, and find the elements.
         findCriteria = sax_command.FIND_ELEMENT_VALUE;
 
-        if (selectedShopList != null) {
+        if (_selectedShopList != null) {
           selectedShopList = _selectedShopList;
         }
 
@@ -468,7 +498,7 @@ public class ShopSAXManager {
    */
   static  protected void entitySort(String _item, boolean _findLowest, String[] _selectedShopList){
 
-        resetParamsForNextSearch();
+        resetForNextSearch();
 
         findCriteria = sax_command.FIND_SORTED;
         if (_selectedShopList != null) {
@@ -494,7 +524,7 @@ public class ShopSAXManager {
           shopList_IdValues = Sort.sortVector(shopList_IdValues);
       }else {
           //*** Under construction ***
-          /**@todo Implement this procedures to sort the list from the highest value to the lowest one*/
+          /**TODO Implement this procedures to sort the list from the highest value to the lowest one*/
           //throw new java.lang.UnsupportedOperationException("ShopSAXManager.sortTempShopList() not yet fully implemented for this situation."); <-- Not in JDK 1.1
           System.out.println("ShopSAXManager.sortTempShopList() not yet fully implemented for this situation.");
           //shopListValues = Sort.selectSort(shopListValues);
@@ -514,8 +544,8 @@ public class ShopSAXManager {
    *  Activate a SAXParser class to read a XML data.
    *  */
   static public void readXML_data() throws Exception{
-	  throw new Exception("ShopSAXManager.readXML_data(): you must override this method in a Subclass.\n" + 
-			              "So, a ShopSAXManager entended SubClass (GasSAXManger) reference can be passed to the SAXReader methods. ");
+	  throw new RuntimeException("ShopSAXManager.readXML_data(): you must override this method in a Subclass.\n" + 
+			                     "So, a ShopSAXManager entended SubClass (GasSAXManger) reference can be passed to the SAXReader methods. ");
 	  
 	  //Example: 
 	  //gasSAXParser.read();   

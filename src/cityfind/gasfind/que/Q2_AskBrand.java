@@ -71,7 +71,7 @@ public class Q2_AskBrand implements Question{
   /** Based on the user saved DIH, this method performs automatic actions. */
   public void doAutoAction(){
       DPHreader dihReader = DPHreader.getInstance();
-      userChoice = Integer.parseInt(dihReader.readAnswer(GasDecisionProcess.getUserDPH(), ID)); //userChoice is required for the setNextQuestion() method.
+      userChoice = Integer.parseInt(dihReader.readAnswer(GasDecisionProcess.getUserDPH(), ID)); //userChoice is required for the setNextQuestion() method.      
       setNextQuestion();
   }
 
@@ -84,6 +84,6 @@ public class Q2_AskBrand implements Question{
     }
   }
   public String toString(){
-      return "Question 2 (DF:" + DF + " ): identify whether a user prefer a particular brand.";
+      return "Q2_AskBrand (DF:" + DF + " ): identify whether a user prefer a particular brand.";
   }
 }

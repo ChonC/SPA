@@ -16,6 +16,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import cityfind.gasfind.GasDecisionProcess;
+import cityfind.gasfind.sax.GasXMLTag;
 
 import spa.util.ShopVO;
 
@@ -48,6 +49,12 @@ public class ShopSAXParser  extends DefaultHandler {
 	private String currentTagName = null;  
 	/** current read tag value */
     protected String charValue = "";
+    
+
+	/** last tag id: there is a Java SAX Bug, which calls endElement() twice 
+	 * at the last Tag, so it will be used to check the condition.  
+	 *  TODO find what causes the bug */ 
+	private int lastTagId = GasXMLTag.TAG_ID_UNKNOWN; 
 	
 	/** Constructor.  
 	 *  @param _url        the URL for a remote XML data file location
@@ -210,9 +217,9 @@ public class ShopSAXParser  extends DefaultHandler {
                           }else if(sm.selectedShopList == null){
                         	  sm.addEntityToShopList(sm.currentID);
                           }
-//                          else{
-//                            //**** Throw error?????????????????????????
-//                          }
+                          else{
+                            throw new RuntimeException("This portion of ShopSAXParser.startElement() is not yet implemented"); 
+                          }
               }else if(sm.findCriteria == sc.FIND_ELEMENT_VALUE){
                           if(sm.selectedShopList != null && sm.targetIndex < sm.selectedShopList.length){
                                 if (sm.selectedShopList[sm.targetIndex].equals(sm.currentID)){
@@ -283,14 +290,13 @@ public class ShopSAXParser  extends DefaultHandler {
 	          }else{
 	            //*** Under construction ***
 	            /**
-	             * @Todo Implements for the following conditions:
+	             * TODO Implements for these conditions:
 	             * if (matchingCriteria == VALUE_BIGGER )
 	             * if (matchingCriteria == VALUE_EQUAL_OR_BIGGER )
 	             * if (matchingCriteria == VALUE_SMALLER )
 	             * if (matchingCriteria == VALUE_EQUAL_OR_SMALLER )
 	             * */
-	            //throw new java.lang.UnsupportedOperationException("ShopSAXParser.endElement() not yet fully implemented for this situation."); // <-- Not in JDK 1.1 (This class initially developed for a Personal Java environment of my Sharp-Zaurus PDA device) 
-	            System.out.println("ShopSAXParser.endElement() not yet fully implemented for this situation. Todo it. ");
+	        	throw new RuntimeException("ShopSAXParser.endElement() not yet fully implemented for these conditions. "); 
 	          }
 	      }else if (sm.findCriteria == sc.FIND_SORTED && sm.b_TargetNode ){
 	    	  

@@ -156,12 +156,13 @@ public class GasDecisionProcess extends DecisionProcess{
 
   /** Returns an array of ShopElement[], which contains name,
    *  id, address, phone, distance, and other stop contact information. The ShopElement[] is
-   *  usually used for displaying the stores' contact information on the screen.  */
+   *  usually used for displaying the stores' contact information on the screen.  
+   *  
+   * @return ShopElement[]  	Returns ShopElement[] or null */
   public ShopElement[] getShopListInfo(){
       ShopElement[] finalList = new ShopElement[shopListArr.length];
-
-	  
-      //Since a SAX XML parser reads a file from the beginning to end,
+     
+	  //Since a SAX XML parser reads a file from the beginning to end,
       //we need to sort the current shopList array in ascending order to read the XML file
       //from the beginning.
       if(isSorted) {
@@ -174,8 +175,7 @@ public class GasDecisionProcess extends DecisionProcess{
 
           //After getting the information, it changes back the ascending array
           //to the original shopList order.  The original shopList array may
-          //have been sorted based on the shops' property value
-          //such as price or distance.
+          //have been sorted based on the shops' property value(price or distance).
           for (int i=0; i< shopListArr.length; i++)
               for (int j=0; j< ascendingArray.length; j++)
                   if (shopListArr[i].endsWith(ascendingArray[j])){

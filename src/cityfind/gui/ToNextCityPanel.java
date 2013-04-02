@@ -26,19 +26,19 @@ public class ToNextCityPanel extends Panel {
     try {
 		textArea.setBounds(new Rectangle(1, 38, 250, 190));
 		this.setLayout(null);
-		label1.setForeground(Color.blue);
+		label1.setForeground(Color.decode("#8ED6DE"));
 		label1.setText("Successfully record your preferences.");
 		label1.setBounds(new Rectangle(0, 244, 250, 26));
-		label2.setForeground(Color.blue);
+		label2.setForeground(Color.decode("#8ED6DE"));
 		label2.setText("Click the \"Search Austin\" button");
 		label2.setBounds(new Rectangle(1, 265, 241, 26));
-		label3.setForeground(Color.blue);
+		label3.setForeground(Color.decode("#8ED6DE"));
 		label3.setText("to do the \"one-click\" search.");
 		label3.setBounds(new Rectangle(2, 284, 238, 25));
 		searchBut.setLabel("Search Austin");
 		searchBut.setBounds(new Rectangle(47, 320, 128, 35));
 		label4.setFont(new java.awt.Font("Dialog", 1, 14));
-		label4.setForeground(Color.blue);
+		label4.setForeground(Color.decode("#8ED6DE"));
 		label4.setText("Search Result:");
 		label4.setBounds(new Rectangle(3, 9, 218, 27));
 		this.add(label2, null);

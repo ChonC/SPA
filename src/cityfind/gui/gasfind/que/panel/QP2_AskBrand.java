@@ -40,14 +40,16 @@ public class QP2_AskBrand extends Panel implements Question, ItemListener{
 
 		CheckboxGroup booleanGroup = new CheckboxGroup();
 		cBoxYes = new Checkbox(Q2_AskBrand.YES_STR, booleanGroup, true);
+		cBoxYes.setForeground(Color.WHITE); 
 		cBoxNo = new Checkbox(Q2_AskBrand.NO_STR, false);
+		cBoxNo.setForeground(Color.WHITE); 
 		cBoxYes.addItemListener(this);
 		cBoxNo.addItemListener(this);
 		cBoxNo.setCheckboxGroup(booleanGroup);
 
-		label1.setForeground(Color.black);
+		label1.setForeground(Color.WHITE);
 		label1.setBounds(new Rectangle(17, 58, 172, 23));
-		label2.setForeground(Color.black);
+		label2.setForeground(Color.WHITE);
 		label2.setBounds(new Rectangle(35, 77, 153, 18));
 
 		this.setLayout(null);

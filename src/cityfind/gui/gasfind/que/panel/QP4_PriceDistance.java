@@ -39,13 +39,15 @@ public class QP4_PriceDistance extends Panel implements Question, ItemListener{
 		Label label2 = new Label(new String(" more important?"));
 		CheckboxGroup choiceGroup = new CheckboxGroup();
 		cBox_Price = new Checkbox(Q4_PriceDistance.PRICE_STR, choiceGroup, true);
+		cBox_Price.setForeground(Color.WHITE);
 		cBox_Distance = new Checkbox(Q4_PriceDistance.DISTANCE_STR, false);
+		cBox_Distance.setForeground(Color.WHITE);
 		cBox_Price.addItemListener(this);
 		cBox_Distance.addItemListener(this);
 		cBox_Distance.setCheckboxGroup(choiceGroup);
 
-		label1.setForeground(Color.black);
-		label2.setForeground(Color.black);
+		label1.setForeground(Color.WHITE);
+		label2.setForeground(Color.WHITE);
 		label1.setBounds(new Rectangle(17, 58, 165, 21));
 		label2.setBounds(new Rectangle(38, 78, 127, 16));
 

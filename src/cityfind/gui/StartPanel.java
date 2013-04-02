@@ -34,7 +34,9 @@ public class StartPanel extends Panel implements I_MsgDisplay{
 		label1.setForeground(Color.white);
 		label1.setText("City");
 		label1.setBounds(new Rectangle(55, 56, 115, 70));
-		this.setBackground(Color.blue);
+
+		this.setBackground(Color.decode("#385A97")); 
+//		this.setBackground(Color.blue);
 		this.setLayout(null);
 		label2.setFont(new java.awt.Font("DialogInput", 0, 70));
 		label2.setForeground(Color.white);
