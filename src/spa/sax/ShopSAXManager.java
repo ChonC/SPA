@@ -281,7 +281,8 @@ public class ShopSAXManager {
   /**
    * <p>
    * Finds the total number of shop-elements from the XML data file.  
-   * It sets the "findCriteria" property value to indicate the
+   * 
+   * Implementation detail: It sets the "findCriteria" property value to indicate the
    * current task, which is finding the total number of shop ('store') elements from a XML data.
    * <p>
    * A Searching method (give a search term/direction).</p>
@@ -290,7 +291,7 @@ public class ShopSAXManager {
    * How a searching method is used: 
    * First, Sub class (GasSAXManager) method calls a ShopSAXManager search method 
    * to set the search terms.  Then the sub-class-method calls readXML() method 
-   * to start XML file reading process and finding the Shops.
+   * to start XML file reading process to find the Shops.
    * 
    *
    * <p><b>

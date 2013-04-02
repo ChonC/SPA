@@ -155,7 +155,7 @@ public class GasSAXManager extends ShopSAXManager {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   /** Finds all the stores that sell the given gas type.
    *
-   *  First, by calling the super.entityHasElement() method, it sets the
+   *  Implementation detail: First, by calling the super.entityHasElement() method, it sets the
    *  the search terms (Finds all the elements that have the tagetNode(gas-type)), 
    *  then activates readXML_data(), which calls GasSAXParser's inherited read() method.  
    *  During the reading,
