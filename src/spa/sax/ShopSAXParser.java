@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
-import java.util.Vector;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -15,10 +14,10 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import cityfind.gasfind.GasDecisionProcess;
 import cityfind.gasfind.sax.GasXMLTag;
 
 import spa.util.ShopVO;
+import static spa.sax.ShopSAX_Command.*;
 
 /** ShopSAXParser provides tools to read a XML file, 
  *  and update the ShopSAXManager properties based on the XML data search result.  
@@ -35,20 +34,21 @@ public class ShopSAXParser  extends DefaultHandler {
 	static protected SAXParserFactory factory; 
 	/** SAX parser */ 
 	static protected SAXParser saxParser; 
-	/** ShopSAX reference. the reference is used 
-	 * to set ShopSAX (or its subclass) properties value based on the finding from XML file.  */
-	static protected ShopSAXManager sm; // 
+	/** ShopTask reference.  */
+	static protected ShopTask t; // 
 	/** remote-server-xml data location url */
 	static URL url; 
 	/** XML data file name */
 	static String xmlSource; 
 	
 	/** Main Element XML tag name ('store') identifier booleans */ 
-	static boolean bstore = false;
+	static boolean b_store = false;
 	/** current read tag name */
 	private String currentTagName = null;  
 	/** current read tag value */
     protected String charValue = "";
+    /** InputSource for XML data reading */
+   	InputSource is;
     
 
 	/** last tag id: there is a Java SAX Bug, which calls endElement() twice 
@@ -59,27 +59,27 @@ public class ShopSAXParser  extends DefaultHandler {
 	/** Constructor.  
 	 *  @param _url        the URL for a remote XML data file location
 	 *  @Param xmlSource the XML source file location. */
-	public ShopSAXParser(URL _url, String _xmlSource, ShopSAXManager _sm){
+	public ShopSAXParser(URL _url, String _xmlSource, ShopTask _a){
 		try {
 			factory = SAXParserFactory.newInstance();
 			saxParser = factory.newSAXParser();			
-			sc = new ShopSAX_Command(); 
 		    url = _url;
 		    xmlSource = _xmlSource;  
 		    
-		    sm = _sm; //To access and set ShopSAXManager or its sub-class property  
+		    t = _a; //To access and set ShopSAXManager or its sub-class property  
 		}catch (Exception e) {
 			e.printStackTrace();
         }
 	}
 	 
-	/** Resets url and xmlSource for a new search.
+	/** Resets url, saxParser and xmlSource for a new search.
 	 *
-	 *  @param _url        the URL for a remote XML data file location
-	 *  @Param xmlSource the XML source file location. */
+	 *  @param _url        	the URL for a remote XML data file location
+	 *  @Param xmlSource 	the XML source file location. */
 	protected void reset(URL _url, String _xmlSource){
 	    url = _url;
 	    xmlSource = _xmlSource;  
+	    saxParser.reset(); 
 	}
 	
 	/**
@@ -90,7 +90,7 @@ public class ShopSAXParser  extends DefaultHandler {
 		try {						
 			if (url!=null){		
 		       	//reads from a remote URL server
-		       	InputSource is = new InputSource(url.openStream());
+		       	is = new InputSource(url.openStream());
 		       	is.setEncoding("ISO-8859-15");
 		        saxParser.parse(is, this); 
 		    }else{  	
@@ -100,16 +100,16 @@ public class ShopSAXParser  extends DefaultHandler {
 			    InputStream inputStream= new FileInputStream(new File(xmlFile));
 	
 	    	    Reader reader = new InputStreamReader(inputStream,"UTF-8");
-			   	InputSource is = new InputSource(reader);
+			   	is = new InputSource(reader);
 			   	is.setEncoding("ISO-8859-15"); 
 			   	//is.setEncoding("UTF-8");  	      
 		        	
 		        saxParser.parse(is, this);
 		     }
-
 		 } catch (Exception e) {
 		       e.printStackTrace();
          }
+
 	}
 
 
@@ -129,16 +129,16 @@ public class ShopSAXParser  extends DefaultHandler {
 	 * </p>
 	 */
 	public void endDocument() {
-	   if (sm.findCriteria == sc.FIND_TOTAL){
-		   sm.totalEntity = sm.entityIndex;
-	   }else if (sm.findCriteria == sc.FIND_SORTED){
-		   sm.sortShopListValues();//execute the sorting method
+	   if (t.findCriteria == C_FIND_TOTAL){
+		   t.totalEntity = t.entityIndex;
+	   }else if (t.findCriteria == C_FIND_SORTED){
+		   t.sortShopListValues();//execute the sorting method
 	   }
 
 
 		  String selectedShopList_length = "0"; 
-		  if(sm.selectedShopList != null){
-			  selectedShopList_length =  "" + sm.selectedShopList.length;
+		  if(t.selectedShopList != null){
+			  selectedShopList_length =  "" + t.selectedShopList.length;
 	      }
 	}
 
@@ -158,81 +158,81 @@ public class ShopSAXParser  extends DefaultHandler {
 	  currentTagName = qName; 
       charValue = ""; //set at the each tag element
        
-      if (currentTagName.equals(sm.shopMainNode)) {//check if it is inside <store> tag.  endElement() will check it again and reset this value.  
-			bstore = true;//inside <store> tag
+      if (currentTagName.equals(t.shopMainNode)) {//check if it is inside <store> tag.  endElement() will check it again and reset this value.  
+			b_store = true;//inside <store> tag
 	  }
 
-      if(sm.findCriteria == sc.FIND_TOTAL){
+      if(t.findCriteria == C_FIND_TOTAL){
     	  //if Finding the total number of 'store', count
-    	  if (bstore && currentTagName.equals(sm.shopMainNode)){//if it is inside <'store'> tag, only count once  
-    		  sm.entityIndex++;  
+    	  if (b_store && currentTagName.equals(t.shopMainNode)){//if it is inside <'store'> tag, only count once  
+    		  t.entityIndex++;  
     	  }
-      }else if(sm.findCriteria != sc.FIND_DONE){
+      }else if(t.findCriteria != C_FIND_DONE){
     	    
-    	  if (bstore && currentTagName.equals(sm.shopMainNode)){//if it is inside <'store'> tag, only execute once (other child(store properties) tags are = false). 
+    	  if (b_store && currentTagName.equals(t.shopMainNode)){//if it is inside <'store'> tag, only execute once (other child(store properties) tags are = false). 
 	          for (int i = 0; i < atts.getLength(); i++){
 	
 	              if (atts.getQName(i).equals("id")){//get the store id
 		            	  
-	            	  sm.currentID = atts.getValue(i); //At the beginning of the each new <store> tag, sets the current-shop-ID
-	                      if(sm.findCriteria == sc.FIND_SORTED){//sorting task
-	                          if(sm.selectedShopList != null && sm.targetIndex < sm.selectedShopList.length){
-	                                if (sm.selectedShopList[sm.targetIndex].equals(sm.currentID)){
-	                                	sm.targetIndex++;
-	                                	sm.b_TargetEntity = true;
+	            	  t.currentID = atts.getValue(i); //At the beginning of the each new <store> tag, sets the current-shop-ID
+	                      if(t.findCriteria == C_FIND_SORTED){//sorting task
+	                          if(t.selectedShopList != null && t.targetIndex < t.selectedShopList.length){
+	                                if (t.selectedShopList[t.targetIndex].equals(t.currentID)){
+	                                	t.targetIndex++;
+	                                	t.b_TargetEntity = true;
 	                                }
-	                          }else if(sm.selectedShopList == null){
-	                        	  sm.b_TargetEntity = true;
+	                          }else if(t.selectedShopList == null){
+	                        	  t.b_TargetEntity = true;
 	                          }
-	                      }else if(sm.findCriteria == sc.FIND_INFO){
-	                          if (sm.b_TargetEntity != true && sm.targetValue.equals(sm.currentID)){
-	                        	  sm.b_TargetEntity = true;
-	                          }else if (sm.b_TargetEntity == true && !sm.targetValue.equals(sm.currentID)){
-	                        	  sm.b_TargetEntity = false;
-	                        	  sm.findCriteria = sc.FIND_DONE; //indicates the task have been done.
+	                      }else if(t.findCriteria == C_FIND_INFO){
+	                          if (t.b_TargetEntity != true && t.targetValue.equals(t.currentID)){
+	                        	  t.b_TargetEntity = true;
+	                          }else if (t.b_TargetEntity == true && !t.targetValue.equals(t.currentID)){
+	                        	  t.b_TargetEntity = false;
+	                        	  t.findCriteria = C_FIND_DONE; //indicates the task have been done.
 	                              break;//*** needs a better way
 	                          }
-	                      }else if(sm.findCriteria == sc.FIND_SHOPLIST_INFO){
-	                          if(sm.selectedShopList != null && sm.targetIndex < sm.selectedShopList.length){
-	                              if (sm.selectedShopList[sm.targetIndex].equals(sm.currentID)){
-	                            	  sm.targetIndex++;
-	                            	  sm.b_TargetEntity = true;//<-- changed by 'endElement()' method
+	                      }else if(t.findCriteria == C_FIND_SHOPLIST_INFO){
+	                          if(t.selectedShopList != null && t.targetIndex < t.selectedShopList.length){
+	                              if (t.selectedShopList[t.targetIndex].equals(t.currentID)){
+	                            	  t.targetIndex++;
+	                            	  t.b_TargetEntity = true;//<-- changed by 'endElement()' method
 	                              }
 	                          }else{
-	                        	  sm.findCriteria = sc.FIND_DONE;
+	                        	  t.findCriteria = C_FIND_DONE;
 	                          }
 	                      }//End of "if(findCriteria == FIND_SORTED) and else..."
 	              }
 	          }//End of the for-loop
           }//End of 'if (bstore)'
       
-          if((sm.findCriteria != sc.FIND_INFO || sm.findCriteria != sc.FIND_SHOPLIST_INFO)&& currentTagName.equals(sm.targetNode)){
+          if((t.findCriteria != C_FIND_INFO || t.findCriteria != C_FIND_SHOPLIST_INFO)&& currentTagName.equals(t.targetNode)){
         	  
-        	  if (sm.findCriteria == sc.FIND_ELEMENT){
-                          if(sm.selectedShopList != null && sm.targetIndex < sm.selectedShopList.length){
-                                if (sm.selectedShopList[sm.targetIndex].equals(sm.currentID)){
-                                	sm.targetIndex++;
-                                	sm.addEntityToShopList(sm.currentID);
+        	  if (t.findCriteria == C_FIND_ELEMENT){
+                          if(t.selectedShopList != null && t.targetIndex < t.selectedShopList.length){
+                                if (t.selectedShopList[t.targetIndex].equals(t.currentID)){
+                                	t.targetIndex++;
+                                	t.addEntityToShopList(t.currentID);
                                 }
-                          }else if(sm.selectedShopList == null){
-                        	  sm.addEntityToShopList(sm.currentID);
+                          }else if(t.selectedShopList == null){
+                        	  t.addEntityToShopList(t.currentID);
                           }
                           else{
                             throw new RuntimeException("This portion of ShopSAXParser.startElement() is not yet implemented"); 
                           }
-              }else if(sm.findCriteria == sc.FIND_ELEMENT_VALUE){
-                          if(sm.selectedShopList != null && sm.targetIndex < sm.selectedShopList.length){
-                                if (sm.selectedShopList[sm.targetIndex].equals(sm.currentID)){
-                                	sm.targetIndex++;
-                                	sm.b_TargetEntity = true;
-                                	sm.b_TargetNode = true; //to notify the 'characters(') method to collect the entity properties' values.
+              }else if(t.findCriteria == C_FIND_ELEMENT_VALUE){
+                          if(t.selectedShopList != null && t.targetIndex < t.selectedShopList.length){
+                                if (t.selectedShopList[t.targetIndex].equals(t.currentID)){
+                                	t.targetIndex++;
+                                	t.b_TargetEntity = true;
+                                	t.b_TargetNode = true; //to notify the 'characters(') method to collect the entity properties' values.
                                 }
-                          }else if(sm.selectedShopList == null){
-                        	  sm.b_TargetEntity = true;
-                        	  sm.b_TargetNode = true; //to notify the 'characters()' method to collect the entity properties' values.
+                          }else if(t.selectedShopList == null){
+                        	  t.b_TargetEntity = true;
+                        	  t.b_TargetNode = true; //to notify the 'characters()' method to collect the entity properties' values.
                           }
-              }else if(sm.findCriteria == sc.FIND_SORTED & sm.b_TargetEntity){
-            	  sm.b_TargetNode = true; //to notify the 'characters()' method to collect the entity properties' values.
+              }else if(t.findCriteria == C_FIND_SORTED & t.b_TargetEntity){
+            	  t.b_TargetNode = true; //to notify the 'characters()' method to collect the entity properties' values.
               }
           }
       }//End of the 'else if'
@@ -280,11 +280,11 @@ public class ShopSAXParser  extends DefaultHandler {
 	   
 	      charValue = charValue.trim(); 
 	      
-	      if (sm.findCriteria == sc.FIND_ELEMENT_VALUE && sm.b_TargetEntity && sm.b_TargetNode){
-	          if (sm.matchingCriteria == sc.VALUE_EXACT ){
+	      if (t.findCriteria == C_FIND_ELEMENT_VALUE && t.b_TargetEntity && t.b_TargetNode){
+	          if (t.matchingCriteria == C_VALUE_EXACT ){
 	        	  
-	              if (charValue.equals(sm.targetValue)){
-	            	  sm.addEntityToShopList(sm.currentID);
+	              if (charValue.equals(t.targetValue)){
+	            	  t.addEntityToShopList(t.currentID);
 	              }
   	  
 	          }else{
@@ -298,31 +298,19 @@ public class ShopSAXParser  extends DefaultHandler {
 	             * */
 	        	throw new RuntimeException("ShopSAXParser.endElement() not yet fully implemented for these conditions. "); 
 	          }
-	      }else if (sm.findCriteria == sc.FIND_SORTED && sm.b_TargetNode ){
+	      }else if (t.findCriteria == C_FIND_SORTED && t.b_TargetNode ){
 	    	  
-	    	  sm.shopList_IdValues.addElement(new ShopVO(Integer.parseInt(sm.currentID), 
+	    	  t.shopList_IdValues.addElement(new ShopVO(Integer.parseInt(t.currentID), 
 	    			                          Float.parseFloat(charValue)));
 	          
 	      }
       	  
-      if (qName.equals(sm.shopMainNode)) {
-    	sm.b_TargetEntity = false;    	  
-  		bstore = false;//reset 
+      if (qName.equals(t.shopMainNode)) {
+    	t.b_TargetEntity = false;    	  
+  		b_store = false;//reset 
   	  }
       charValue = ""; //reset at the end of each tag element
-	  sm.b_TargetNode = false; 
+	  t.b_TargetNode = false; 
   }
 	
-//	public static void main(String args[]) {
-//		try {
-//			 URL url = new URL("http://chon.techliminal.com/cityfind/houstonXML.txt");
-//			 ShopSAXManager shopSAXManager = new ShopSAXManager("houstonXML.txt", ShopXMLTag.getTagName(ShopXMLTag.TAG_STORE)); 
-//			 ShopSAXParser shopSAXParser = new ShopSAXParser(url, "houstonXML.txt", shopSAXManager); 
-//			 shopSAXParser.read(); 
-//		} catch (Exception e) {
-//		       e.printStackTrace();
-//		}
-//	 
-//	}
-
 }

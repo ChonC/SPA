@@ -1,7 +1,7 @@
 package spa.question;
 
 /**
- * Title:        CityFinder (IDSS Demo Applet)
+ * Title:        CityFinder (SPA Demo Applet)
  * Description:  Question is used for the questioning-processes for collecting decisions.
  *               To collect decisions, we create a series of questions to ask a user 
  *               by implementing this Question Interface. 

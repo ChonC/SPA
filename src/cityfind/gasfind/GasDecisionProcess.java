@@ -41,7 +41,8 @@ import spa.util.Sort;
  * <p>          License: Lesser General Public License (LGPL)
  * 
  * TODO	This class might need to handle concurrent requests, 
- * therefore it should store each user request process in a session like HashMap or ThreadLocal. 
+ * 		therefore it should store each user request task (GasTask instance)
+ *  	in a session like HashMap or ThreadLocal. 
  */
 public class GasDecisionProcess extends DecisionProcess{
 
@@ -55,7 +56,7 @@ public class GasDecisionProcess extends DecisionProcess{
 
   /** ID of this GasDecisionProcess class. Format = "Name::version::date" */
   static String id_GDP;
-  /** Gas-SAX-XML reader. */
+  /** GasSAXManager reference. */
   private static GasSAXManager gasSAXManager;
   /** the next question number status.*/
   private static QueStatus nextQuestion = QueStatus.Q1_GAS_TYPE;
@@ -209,7 +210,7 @@ public class GasDecisionProcess extends DecisionProcess{
       return false;
   }
 
-  /** Returns the description of this IDSS process as a String. */
+  /** Returns the description of this SPA process as a String. */
   public String toString(){
       return "GasDecision Process SPA( " + id_GDP + "): finds the gas-stations based on your decision choices.\n" +
              "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +

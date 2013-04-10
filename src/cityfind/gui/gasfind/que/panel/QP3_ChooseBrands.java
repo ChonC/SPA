@@ -9,7 +9,7 @@ import cityfind.gasfind.que.Q3_ChooseBrands;
 import cityfind.gasfind.sax.GasSAXManager;
 
 /**
- * Title:        CityFinder (IDSS Demo Applet)
+ * Title:        CityFinder (SPA Demo Applet)
  *
  * Description:  QP3_ChooseBrands is a Panel class to display the third question class
  *               that asks a user the following: "Choose Brands".

@@ -2,7 +2,7 @@ package cityfind.gui;
 
 
 /**
- * Title:        CityFinder (IDSS Demo Applet)
+ * Title:        CityFinder (SPA Demo Applet)
  * Description:  Displays error massages on the screen.
  *
  * Copyright:    Copyright (c) 2001-2003 Chon D. Chung.

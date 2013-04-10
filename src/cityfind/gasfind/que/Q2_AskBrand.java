@@ -7,7 +7,7 @@ import cityfind.gasfind.GasDecisionProcess;
 import cityfind.gasfind.sax.GasSAXManager;
 
 /**
- * Title:        CityFinder (IDSS Demo Applet)
+ * Title:        CityFinder (SPA Demo Application)
  *
  * Description:  Q2_AskBrand is a question class that implements Question interface.
  *               It has the following question:<br><br>

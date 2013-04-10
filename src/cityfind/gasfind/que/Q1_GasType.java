@@ -87,7 +87,7 @@ public class Q1_GasType implements Question{
  	  //TODO if (GasDecisionProcess.isShopListEmpty()) <--should check the condition. if true, we should ask a user to make another choice.
       GasDecisionProcess.addAnswerToDPH(Integer.toString(ID), String.valueOf(userChoice)); //Stores the user answer
       
-      setNextQuestion();
+      setNextQuestion();      
   }
 
 

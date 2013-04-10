@@ -61,11 +61,6 @@ import sun.awt.image.URLImageSource;
  *
  *<p>          		License: Lesser General Public License (LGPL)
  */
-
-/**
- * @author owner
- *
- */
 public class CityFinder extends Frame implements ActionListener{
 
   /** The start button click event.*/
@@ -324,6 +319,8 @@ public class CityFinder extends Frame implements ActionListener{
 			   " No matching shop.  "; 		  
 	  }
 
+	  storeInfo += "Recorded Decision Process History (DPH): \n" +
+	  				decisionProcess.getUserDPH() + "\n"; 
 	  mapCanvas.repaint();
 	  toNextCityPanel = new ToNextCityPanel(this);
 	  toNextCityPanel.setText(storeInfo);

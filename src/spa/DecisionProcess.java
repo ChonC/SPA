@@ -32,9 +32,9 @@ import spa.question.Question;
 
 abstract public class DecisionProcess {
 
-  /** Task status Constant.  Indicates the IDSS decision task is in progressing. */
+  /** Task status Constant.  Indicates the SPA decision task is in progressing. */
   public static final int TASK_IN_PROGRESSING = 1;
-  /** Task status Constant.  Indicates the IDSS decision task has been completed. */
+  /** Task status Constant.  Indicates the SPA decision task has been completed. */
   public static final int TASK_DONE = 2;
 
 
@@ -61,7 +61,7 @@ abstract public class DecisionProcess {
 
   /** Default constructor. */
   public DecisionProcess(){
-      id_DP = "DecisionProcess::demo-0.1::12-9-2001";//Note: it is the first presentation day of this application (Dec/09/2001) at Houston Java Users Group (www.hjug.org). 
+      id_DP = "DecisionProcess::demo-0.7::12-9-2001";//Note: it is the first presentation day of this application (Dec/09/2001) at Houston Java Users Group (www.hjug.org). I did not have the communication skill to do a presentation at the time, but I could demo a program.  That is how it start...
       taskStatus = TASK_IN_PROGRESSING;
       isSorted = false;
       isLastQuestion = false;

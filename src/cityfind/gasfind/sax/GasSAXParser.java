@@ -2,21 +2,16 @@ package cityfind.gasfind.sax;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Vector;
-
-import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
-import cityfind.gasfind.GasDecisionProcess;
 import cityfind.gasfind.GasElement;
 
-import spa.ShopElement;
+import spa.sax.ShopTask;
 import spa.sax.ShopSAXParser;
-import spa.sax.ShopSAXManager;
-import spa.sax.ShopSAX_Command;
-import spa.sax.ShopXMLTag;
+
+import static cityfind.gasfind.sax.GasSAX_Command.*;
 
 /** 
  * GasSAXParser provides tools to read a XML file, 
@@ -39,10 +34,8 @@ import spa.sax.ShopXMLTag;
  **/
 public class GasSAXParser extends ShopSAXParser{
 
-	/** ShopSAX_Command local reference, which has commands constants for dictating SAX task. */
-	static GasSAX_Command gc; 
-	/** GasSAXManager singleton reference */
-	static protected GasSAXManager gm; 
+	/** GasTask reference */
+	static protected GasTask t; 
 
 	/** current read tag name */
 	private String curTagName = null;  
@@ -57,12 +50,12 @@ public class GasSAXParser extends ShopSAXParser{
 			
 	/** Constructor.  
 	 *  @param _url        the URL for a remote XML data file location
-	 *  @Param xmlSource the XML source file location. */
-	public GasSAXParser(URL _url, String _xmlSource, GasSAXManager _gasSAXManager){
-		super(_url, _xmlSource, (ShopSAXManager)_gasSAXManager); //"_gasSAXManager" is passed to the super.ShopSAXParser. So, ShopSAXParser would be able to set GasSAXManager property during the reading XML processing. 
+	 *  @param _xmlSource the XML source file location. 
+	 *  @param _task  task reference*/
+	public GasSAXParser(URL _url, String _xmlSource, GasTask _task){
+		super(_url, _xmlSource, (ShopTask)_task); //"_gasSAXManager" is passed to the super.ShopSAXParser. So, ShopSAXParser would be able to set GasSAXManager property during the reading XML processing. 
 				
-		gm = _gasSAXManager;	
-		gc = new GasSAX_Command(); 
+		t = _task;	
 	}
 
 	/** Resets url and xmlSource for a new search.
@@ -76,11 +69,12 @@ public class GasSAXParser extends ShopSAXParser{
 	  /**
 	   * SAX parser built in method. Receive the beginning of document event.
 	   */
-	  public void startDocument() {
+	@SuppressWarnings("unchecked")
+	public void startDocument() {
 	    super.startDocument();
 	      
-	    if (gm.getShopList() != null) gm.lastShopList = (ArrayList<Object>) gm.getShopList().clone();
-	  }
+	    if (t.shopList != null) t.lastShopList = (ArrayList<Object>) t.shopList.clone();
+	}
 
 	   /**
 		 * SAX parser built in method. <br>
@@ -113,16 +107,16 @@ public class GasSAXParser extends ShopSAXParser{
 		  curTagName = qName; 
 		  charactersValue = ""; //set at the each tag element
 
-	      if(gm.getFindCriteria() == gc.FIND_INFO && gm.isTargetEntity() == true) {
-	        gm.theCurrentTagId = GasXMLTag.getTagId(qName);//theCurrentTagId will be used in the "characters()" method to store the current XML-tag value.
-	      }else if(gm.getFindCriteria() == gc.FIND_SHOPLIST_INFO && gm.isTargetEntity() == true) {
+	      if(t.findCriteria == C_FIND_INFO && t.b_TargetEntity == true) {
+	        t.theCurrentTagId = GasXMLTag.getTagId(qName);//theCurrentTagId will be used in the "characters()" method to store the current XML-tag value.
+	      }else if(t.findCriteria == C_FIND_SHOPLIST_INFO && t.b_TargetEntity == true) {
 	          for (int i = 0; i < atts.getLength(); i++){
 	              if (atts.getQName(i).equals("id")){
-	            	  gm.getShopList().add(new GasElement());
+	            	  t.shopList.add(new GasElement());
 
 	              }
 	          }
-	          gm.theCurrentTagId = GasXMLTag.getTagId(qName);//theCurrentTagId will be used in the "characters()" method to store the current XML-tag value.
+	          t.theCurrentTagId = GasXMLTag.getTagId(qName);//theCurrentTagId will be used in the "characters()" method to store the current XML-tag value.
 	      }
 	  }
 
@@ -169,41 +163,30 @@ public class GasSAXParser extends ShopSAXParser{
 		   
 			      super.endElement(namespaceURI, localName, qName);
 	
-			      // Todo compare with super characterValue and this charValue.  If need, add them together. 	
+			      //TODO compare with super characterValue and this charValue.  If need, add them together. 	
 			      charactersValue = charactersValue.trim();
 			      
-			      if (gm.getFindCriteria() == gc.FIND_INFO && gm.isTargetEntity() == true){
-			          if(gm.theCurrentTagId == GasXMLTag.TAG_ID_NAME){//"name" is the first property tag-node of <store> 
-			              gm.gasShopInfo.setId(String.valueOf(gm.getCurrentID() ));//set Id once. 
+			      if (t.findCriteria == C_FIND_INFO && t.b_TargetEntity == true){
+			          if(t.theCurrentTagId == GasXMLTag.TAG_ID_NAME){//"name" is the first property tag-node of <store> 
+			              t.gasShopInfo.setId(String.valueOf(t.currentID));//set Id once. 
 			          }
-			          gm.gasShopInfo.setElementValue(gm.theCurrentTagId, charactersValue);//add the store information by each XML items.
-			      }else if (gm.getFindCriteria() == gc.FIND_SHOPLIST_INFO && gm.isTargetEntity() == true){
-			          if(gm.theCurrentTagId == GasXMLTag.TAG_ID_NAME){
-			              ((GasElement)gm.getShopList().get(gm.getTargetIndex() -1)).setId(String.valueOf(gm.getCurrentID()));
+			          t.gasShopInfo.setElementValue(t.theCurrentTagId, charactersValue);//add the store information by each XML items.
+			      }else if (t.findCriteria == C_FIND_SHOPLIST_INFO && t.b_TargetEntity == true){
+			          if(t.theCurrentTagId == GasXMLTag.TAG_ID_NAME){
+			              ((GasElement)t.shopList.get(t.targetIndex -1)).setId(String.valueOf(t.currentID));
 			          }
 
 			    	  /**Note: there is a Java SAX Bug, which calls endElement() twice at the last tag.  
 			    	           So, the following condition is a quick fix.  TODO find what causes the bug */
-			          if (gm.theCurrentTagId != lastTagId && !charactersValue.equals("")){
-			        	  ((GasElement)gm.getShopList().get(gm.getTargetIndex() -1)).setElementValue(gm.theCurrentTagId, charactersValue);
+			          if (t.theCurrentTagId != lastTagId && !charactersValue.equals("")){
+			        	  ((GasElement)t.shopList.get(t.targetIndex -1)).setElementValue(t.theCurrentTagId, charactersValue);
 			          }
 			      }
 		      
 		    	
 		      charactersValue = ""; //reset at the end of each tag element
-		      lastTagId = gm.theCurrentTagId;       
+		      lastTagId = t.theCurrentTagId;       
 		      
 	   }
 
-		public static void main(String argv[]) {
-			try {
-				 URL url = new URL("http://chon.techliminal.com/cityfind/houstonXML.txt");
-				 GasSAXManager gasSAXManager = new GasSAXManager("houstonXML.txt", ShopXMLTag.getTagName(ShopXMLTag.TAG_ID_STORE)); 
-				 GasSAXParser gasSAXParser = new GasSAXParser(url, "houstonXML.txt", gasSAXManager); 
-				 gasSAXParser.read(); 
-			} catch (Exception e) {
-			       e.printStackTrace();
-			}
-		 
-		}
 }

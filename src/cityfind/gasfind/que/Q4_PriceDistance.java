@@ -8,7 +8,7 @@ import cityfind.gasfind.sax.GasSAXManager;
 
 
 /**
- * Title:        CityFinder (IDSS Demo Applet)
+ * Title:        CityFinder (SPA Demo Applet)
  *
  * Description:  Q4_PriceDistance is a question class, which implements Question
  *               interface.  It holds the following question:<br><br>
@@ -86,9 +86,8 @@ public class Q4_PriceDistance implements Question{
       }
 
       GasDecisionProcess.addAnswerToDPH(Integer.toString(ID),String.valueOf(userChoice));
-
       GasDecisionProcess.setTaskStatus(GasDecisionProcess.TASK_DONE); 
- 	  
+       	  
       setNextQuestion();
 
   }

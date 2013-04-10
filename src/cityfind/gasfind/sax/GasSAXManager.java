@@ -6,6 +6,7 @@ import org.xml.sax.*;
 
 import spa.ShopElement;
 import spa.sax.ShopSAXManager;
+import spa.sax.ShopTask; 
 import spa.sax.ShopSAX_Command;
 import spa.util.ShopVO;
 
@@ -15,7 +16,7 @@ import java.io.*;
 import java.net.*;//<-- for URL reading
 
 /**
- * <p>Title:        CityFinder (IDSS Demo Applet)</p> *
+ * <p>Title:        CityFinder (SPA Demo Applet)</p> *
  * <p><b>
  * Description:</b> GasSAXManager provides
  *                  the following search methods to find the gas stations
@@ -55,7 +56,8 @@ import java.net.*;//<-- for URL reading
  *                  can be in a use real-time data discovery application.  
  *                  </p>
  *
- * <p>@todo         1. For the networking application, it needs to implement the Thread-runnerable,
+ * <p>
+ * TODO             1. For the networking application, it needs to implement the Thread-runnerable,
  *                  wait(), and notify() for validating the network xml-parsing process.<br>
  *                  2. In the 'endOfDocument()' method, it should use java-thread to notify 
  *                   the finish process event to the called class.</p> 
@@ -70,19 +72,15 @@ import java.net.*;//<-- for URL reading
  */
 
 
-public class GasSAXManager extends ShopSAXManager {
-	
-  /** Stores the last Shop-entity lists for the undo process */
-  static protected ArrayList<Object> lastShopList;
-  /** stores the current XML tag id. */
-  static protected  int theCurrentTagId;
-  /** the current shop information reference. */
-  static protected  GasElement gasShopInfo;
+public class GasSAXManager extends ShopSAXManager {	
 
-  /** URL reference for reading the XML data information from a URL.openstream. */
-  static protected  URL url=null;
-  /** GasReadXML local reference */ 
-  static protected  GasSAXParser gasSAXParser; 
+	  protected static GasTask task = new GasTask();
+	  
+	    
+	  /** URL reference for reading the XML data information from a URL.openstream. */
+	  static protected  URL url=null;
+	  /** GasReadXML local reference */ 
+	  static protected  GasSAXParser gasSAXParser; 
     
   /** Constructor, it calls the super.constructor to initialize its
    *  instance.  
@@ -92,13 +90,11 @@ public class GasSAXManager extends ShopSAXManager {
    * @param _shopNode    The main business entity XML node. i.e. '<store/>'
    */
   public GasSAXManager(String _xmlSource, String _shopNode){
-    super(_xmlSource, _shopNode); 
-    lastShopList = null;
-    theCurrentTagId = 0;
-    gasShopInfo = null;
+    super(_xmlSource); 
+    super.setTask(task, _shopNode);
     url=null; 
 
-	gasSAXParser = new GasSAXParser(url, _xmlSource, this);  
+	gasSAXParser = new GasSAXParser(url, _xmlSource, task);  
   }
 
 
@@ -112,43 +108,38 @@ public class GasSAXManager extends ShopSAXManager {
    * @param _shopNode    The main business entity XML node. i.e. '<store/>'
    */
   public GasSAXManager(URL _url, String _xmlSource, String _shopNode){
-    super(_xmlSource, _shopNode); 
-    lastShopList = null;
-    theCurrentTagId = 0;
-    gasShopInfo = null;
-    url= _url; 
+	  super(_xmlSource); 
+	  super.setTask(task, _shopNode);
+	  url= _url; 
 
-	gasSAXParser = new GasSAXParser(url, _xmlSource, this );  
-  }
+	  gasSAXParser = new GasSAXParser(url, _xmlSource, task);  
+  }	
 
   
-  /** Resets this class instance with the given XML datasource.  This method
-   *  is used to conduct a new search from the given new XML datasource.
+  /** Resets this class instance with the given XML data-source.  This method
+   *  is used to conduct a new search from the given new XML data-source.
    *
-   * @param xmlSource  the XML datafile source.
+   * @param xmlSource  the XML data file source.
    * @param shopNode    The main business entity XML node. i.e. '<store/>' */
   public void reset(String _xmlSource, String _shopNode){
     super.resetForNewSearch(_xmlSource, _shopNode);
     gasSAXParser.reset(null, _xmlSource); 
-    lastShopList = null;
-    theCurrentTagId = 0;
-    gasShopInfo = null;
     url=null;
+    task.reset();     
   }
 
-  /** Resets this class instance with the given XML datasource.  This method
-   *  is used to conduct a new search from the given new XML datasource.
+  /** Resets this class instance with the given XML data-source.  This method
+   *  is used to conduct a new search from the given new XML data-source.
    *
-    * @param url          the URL for a remote XML datasource
-    * @param xmlSource    local XML datafile source for when a url connection is unavailable.  This is only for demo.  When a network connection is not available, this file is used for demo.
+    * @param url          the URL for a remote XML data-source
+    * @param xmlSource    local XML data-file source for when a url connection is unavailable.  This is only for demo.  When a network connection is not available, this file is used for demo.
     * @param shopNode       The main business entity XML node. i.e. '<store/>' */
   public void reset(URL _url, String _xmlSource, String _shopNode){
     super.resetForNewSearch(_xmlSource, _shopNode);
     gasSAXParser.reset(_url, _xmlSource); 
-    lastShopList = null;
-    theCurrentTagId = 0;
-    gasShopInfo = null;
-    url = _url;
+    url = _url;    
+
+    task.reset(); 
   }
 
 
@@ -173,11 +164,12 @@ public class GasSAXManager extends ShopSAXManager {
     
     readXML_data(); 
 
-        String[] duplicateArray = new String[shopList.size()];
-        shopList.toArray(duplicateArray);
+        String[] duplicateArray = new String[task.shopList.size()];
+        task.shopList.toArray(duplicateArray);
     return duplicateArray;
   }
-  /** Finds all stores that sells the gas type from the given selectedShopList.
+  /** 
+   * Finds all stores that sells the gas type from the given selectedShopList.
    *
    * @param gasType     The name of gas type. i.e. 'unlead'
    * @param _selectedShopList  The array of gas-stations' ID list.  Search will be conducted
@@ -188,8 +180,8 @@ public class GasSAXManager extends ShopSAXManager {
     super.entityHasNode(_gasType,  _selectedShopList);
     readXML_data(); 
 
-        String[] duplicateArray = new String[shopList.size()];
-        shopList.toArray(duplicateArray);
+        String[] duplicateArray = new String[task.shopList.size()];
+        task.shopList.toArray(duplicateArray);
     return duplicateArray;
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -198,8 +190,8 @@ public class GasSAXManager extends ShopSAXManager {
 	super.entityHasNodeWithValue("brand", _brandName);
     readXML_data(); 
     
-        String[] duplicateArray = new String[shopList.size()];
-        shopList.toArray(duplicateArray);
+        String[] duplicateArray = new String[task.shopList.size()];
+        task.shopList.toArray(duplicateArray);
     return duplicateArray;
   }
   /** Finds stores with a certain brand. ex) Chevron, Exxon, Shell, or Texaco */
@@ -207,8 +199,8 @@ public class GasSAXManager extends ShopSAXManager {
     super.entityHasNodeWithValue("brand", _brandName, _selectedShopList);
     readXML_data(); 
 
-        String[] duplicateArray = new String[shopList.size()];
-        shopList.toArray(duplicateArray);
+        String[] duplicateArray = new String[task.shopList.size()];
+        task.shopList.toArray(duplicateArray);
     return duplicateArray;
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -251,9 +243,9 @@ public class GasSAXManager extends ShopSAXManager {
   }
 
   private String[] getShopList_idValuesArray(){
-      String[] duplicateArray = new String[shopList_IdValues.size()];
-          for (int i=0; i< shopList_IdValues.size(); i++)
-              duplicateArray[i] = Integer.toString(((ShopVO)shopList_IdValues.elementAt(i)).getId());
+      String[] duplicateArray = new String[task.shopList_IdValues.size()];
+          for (int i=0; i< task.shopList_IdValues.size(); i++)
+              duplicateArray[i] = Integer.toString(((ShopVO)task.shopList_IdValues.elementAt(i)).getId());
 
       return duplicateArray;
   }
@@ -261,11 +253,11 @@ public class GasSAXManager extends ShopSAXManager {
   /** Extract the shop information from the XML source. */
   public String getGasShopInfo(String _shopId){
 
-    gasShopInfo = new GasElement();//reset the Store
+	  task.gasShopInfo = new GasElement();//reset the Store
     super.entityInfo(_shopId);
     readXML_data(); 
 
-    return gasShopInfo.toString();
+    return task.gasShopInfo.toString();
   }
 
   /** Extract the shops' information from the XML source. 
@@ -280,7 +272,7 @@ public class GasSAXManager extends ShopSAXManager {
       readXML_data(); 
       
       ShopElement[] tempList = new GasElement[_shopIdList.length];
-      shopList.toArray(tempList);
+      task.shopList.toArray(tempList);
 
       return tempList;
 
@@ -290,11 +282,11 @@ public class GasSAXManager extends ShopSAXManager {
    *  Activate a gasSAXParser to read the business XML data from
    *  the specified file location.
    *  */
-  static public void readXML_data() {
+  public void readXML_data() {
 	  
 	  String selectedShopList_length = "0"; 
-	  if(selectedShopList != null){
-		  selectedShopList_length =  "" + selectedShopList.length;
+	  if(task.selectedShopList != null){
+		  selectedShopList_length =  "" + task.selectedShopList.length;
       }
 	  gasSAXParser.read();   
   }

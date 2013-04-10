@@ -4,7 +4,7 @@ import spa.sax.ShopSAX_Command;
 
 /**
  * GasSAX_Command contains Gas-Station-Find-task commands constant fields, which are 
- * used by GasSAXManager class. 
+ * used by GasSAXParser class. 
  * 
  * Copyright:    Copyright (c) 2001-2002 Chon Chung.
  * @author       Chon Chung

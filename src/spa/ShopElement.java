@@ -1,7 +1,7 @@
 package spa;
 
 /**
- * Title:        CityFinder (IDSS Demo Applet)
+ * Title:        CityFinder (SPA Demo Applet)
  * 
  * Description:  ShopElement is a Value Object class to store a shop entity information. 
  *               such as the business contact information. 
