@@ -115,6 +115,8 @@ However, to solve such complex process automation, we need a single generic SPA 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 Copyright &copy; 2001-2013 Chon Chung. License: Lesser General Public License (LGPL)
 
+<br/>
+I discovered/created SPA algorithm in year 2001.  I hope it to be used to benefit us: make fun stuff, and create more jobs.  So, I release it as an open source project. 
 
 
 
