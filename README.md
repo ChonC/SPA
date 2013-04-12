@@ -1,4 +1,4 @@
-Smart Process Automation (SPA)
+SPA Smart algorithm 
 ==============================
 Record your Smart Decision Processes, store them in a computing device, and automate them.  A computing device can do the work much faster for you.  
 
@@ -93,12 +93,23 @@ Finally, after we collect all the user's decision choices, we can record and sto
 
 Vision: 
 -------
+<table width="847" border="0">
+  <tr>
+    <td width="345">
+    
+       <img src="http://chon.techliminal.com/cityfind/images/fractal_intelligence_algorithm.png" width="340" height="324" />
+    </td>
+    <td width="492">
 SPA goal/vision is to create a true Fractal Process Automation Algorithm to automate all kinds of Processes. 
 
 Fractal Intelligence Algorithm is designed to mimic a human being�s subconscious mind.  For example, a human child learns to walk through practice,  and after he/she has learned to walk, the knowledge-processes are stored in the child's subconscious memory. So, the child can walk without consciously thinking about walking all the time. 
 
 However, to solve such complex process automation, we need a single generic SPA module that is able to automatically adapt to different Decision tasks.  So, we can instantiate hundreds of SPA modules at runtime, without manual programming; by simply feeding task artifact (characteristic) files to a generic SPA module. As you can see, the sub-SPA task package classes are pretty simple, which makes it possible to create a true Fractal SPA module.  A single/simple fractal algorithm to handle complex tasks' automation. 
 
+    
+    </td>
+  </tr>
+</table>
 
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
