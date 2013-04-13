@@ -1,4 +1,4 @@
-SPA Smart algorithm 
+SPA Personal Automation Algorithm 
 ==============================
 Record your Smart Decision Processes, store them in a computing device, and automate them.  A computing device can do the work much faster for you.  
 
@@ -9,7 +9,7 @@ Record your Smart Decision Processes, store them in a computing device, and auto
 3. <strong>Automation</strong>:  SPA provides the framework and tool to easily build the SPA automation module.  By using it, we can create tools to collect the process information, record them, and automate the decision tasks in a computing device. 
 
 
-SPA automation Algorithm
+SPA Personal Automation Algorithm
 ------------------------
 SPA (Smart Process Automation) is the Fractal Object-Oriented Algorithm; it records the process and automates them.  It is based on the Decision Factor (DF), which is the basic building block that influences and defines the decision outcome.  For example, if we would like to locate the nearest gas station with the best price, there are 4 Decision Factors: type of gas, gas brand, distance, and price.
 With each Decision Factor, we can create a Decision Question (DQ), which interactively asks a person for his/her decision process, step-by-step. By combining all of the DQ�s in a logical manner, we can develop an SPA that records the person's decision process for one-click automation.
