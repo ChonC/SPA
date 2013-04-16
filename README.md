@@ -8,6 +8,7 @@ Record your Smart Decision Processes, store them in a computing device, and auto
 2. <strong>Process</strong>: Every Decision Process has two basic elements: Decision Factor and Decision Question.  By using a SPA algorithm, we can develop generic classes for the Decision Factor and Decision Question to collect a user decision answers. 
 3. <strong>Automation</strong>:  SPA provides the framework and tool to easily build the SPA automation module.  By using it, we can create tools to collect the process information, record them, and automate the decision tasks in a computing device. 
 
+<iframe width="853" height="480" src="http://www.youtube.com/embed/rzE1LVDXpsQ" frameborder="0" allowfullscreen></iframe>
 
 SPA Personal Automation Algorithm
 ------------------------
