@@ -90,6 +90,12 @@ Finally, after we collect all the user's decision choices, we can record and sto
 ![Decision process History](http://chon.techliminal.com/cityfind/images/dph.png)
 
 
+Gas Station Finder Example:
+---------------------------
+ 
+![Gas Station Finder SPA](http://chon.techliminal.com/cityfind/images/gas_dp.png)
+
+
 
 
 Vision: 
