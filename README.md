@@ -2,7 +2,7 @@ SPA Personal Automation Algorithm
 ==============================
 Record your Smart Decision Processes, store them in a computing device, and automate them.  A computing device can do the work much faster for you.  
 
-<img src="http://chon.techliminal.com/cityfind/images/3icons.png">
+<img style="-webkit-user-select: none" src="http://chon.techliminal.com/cityfind/images/3icons.png" alt=" SPA Personal Automation Algorithm" height="437" width="847">
 
 1. <strong>Record</strong>: XML or JSON are good tools to record processes in an Object oriented manner.  SPA provides tools to record the processes in a XML file. 
 2. <strong>Process</strong>: Every Decision Process has two basic elements: Decision Factor and Decision Question.  By using a SPA algorithm, we can develop generic classes for the Decision Factor and Decision Question to collect a user decision answers. 
