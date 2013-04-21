@@ -65,8 +65,6 @@ However, to solve such complex process automation, we need a single generic SPA 
   </tr>
 </table>
 
-<img style="-webkit-user-select: none" src="http://chon.techliminal.com/cityfind/images/the_force_of_open_source.png" alt="The force of Open source" height="379" width="840">
-<br/>
 
 Programming Instructions
 ------------------------
@@ -129,10 +127,15 @@ Gas Station Finder Example:
 
 
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-Copyright &copy; 2001-2013 Chon Chung. License: Lesser General Public License (LGPL)
+<br/><br/><br/>
 
+
+<img style="-webkit-user-select: none" src="http://chon.techliminal.com/cityfind/images/the_force_of_open_source.png" alt="The force of Open source" height="379" width="840">
 <br/>
+
+
+<br/><br/><br/><br/>
+Copyright &copy; 2001-2013 Chon Chung. License: Lesser General Public License (LGPL)
 I discovered/created SPA algorithm in year 2001.  I hope it to be used to benefit us: make fun stuff, and create more jobs.  So, I release it as an open source project. 
 
 
