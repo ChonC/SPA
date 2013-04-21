@@ -10,6 +10,13 @@ Record your Smart Decision Processes, store them in a computing device, and auto
 
 [![SPA Introduction Video](http://chon.techliminal.com/cityfind/images/playtube.png)](http://youtu.be/1bE68aQje3g)
 
+What would you do?
+------------------
+What comes after smartphones? What if we can make a smaller device work smarter? I created this project, with this question in mind.
+
+What would you do if you have these smart devices? Your idea could help kickstart the project. Let me know your thoughts!
+click here: <a href="http://bit.ly/15w4suQ">http://bit.ly/15w4suQ</a>
+
 SPA Personal Automation Algorithm
 ------------------------
 SPA (Smart Personal-Process Automation) is the Fractal Object-Oriented Algorithm; it records the process and automates them.  It is based on the Decision Factor (DF), which is the basic building block that influences and defines the decision outcome.  For example, if we would like to locate the nearest gas station with the best price, there are 4 Decision Factors: type of gas, gas brand, distance, and price.
