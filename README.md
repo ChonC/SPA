@@ -24,7 +24,7 @@ click here: <a href="http://bit.ly/15w4suQ">http://bit.ly/15w4suQ</a>
 SPA Personal Automation Algorithm
 ------------------------
 SPA (Smart Personal-Process Automation) is the Fractal Object-Oriented Algorithm; it records the process and automates them.  It is based on the Decision Factor (DF), which is the basic building block that influences and defines the decision outcome.  For example, if we would like to locate the nearest gas station with the best price, there are 4 Decision Factors: type of gas, gas brand, distance, and price.
-With each Decision Factor, we can create a Decision Question (DQ), which interactively asks a person for his/her decision process, step-by-step. By combining all of the DQ�s in a logical manner, we can develop an SPA that records the person's decision process for one-click automation.
+With each Decision Factor, we can create a Decision Question (DQ), which interactively asks a person for his/her decision process, step-by-step. By combining all of the DQs in a logical manner, we can develop an SPA that records the person's decision process for one-click automation.
 
 Moreover, SPA is a Fractal Intelligence Algorithm. By <strong>combining multiple SPA modules</strong>, we can solve <strong>complex decision tasks</strong> such as: finding the best place for gas, lunch and shopping, and then drive a route that includes all of them.  Also, a Fractal Intelligence Algorithm requires a less memory and process power than other Intelligence Algorithms for a small computing device.    
 
