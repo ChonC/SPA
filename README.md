@@ -131,11 +131,6 @@ Gas Station Finder Example:
 
 
 
-<br/><br/><br/>
-
-
-<img style="-webkit-user-select: none" src="http://chon.techliminal.com/cityfind/images/the_force_of_open_source.png" alt="The force of Open source" height="379" width="840">
-<br/>
 
 
 <br/><br/><br/><br/>
