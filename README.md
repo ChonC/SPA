@@ -17,6 +17,14 @@ What is the SPA project?
 ------------------------ 
 The SPA project’s purpose is to build the algorithm that will allow us to input our personal decisions into wearable health devices/home appliances to make them smarter and personalized.  Today computing devices are getting smaller and cheaper.  For example, a $25 Raspberry Pi computer can make small devices and house appliances smarter.  Using such accessible technology, the SPA project will revolutionize wearable health tech devices.
 
+
+<ul>Strengths: 
+<li> Only 140 Kilobytes: fits into small devices. </li>
+<li> SPA is based on the Decision Factor (DF).  Easy of development.</li>
+<li> 42 times more memory efficient.</li>
+<li> Subconscious intelligent algorithm.  No learning and thinking process are required for automation.  Efficient and fast performance.  </li>
+</ul>
+
 What would you do?
 ------------------
 What comes after smartphones? What if we can make a smaller device work smarter? I created this project, with this question in mind.
