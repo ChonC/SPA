@@ -79,7 +79,7 @@ Vision:
 SPA goal/vision is to create a true Fractal Intelligent Algorithm to automate all kinds of Processes. 
 Like a Fractal Antenna in a cell phone, Fractal Intelligent algorithm will bring many useful applications in small tech devices.  
 
-Fractal Intelligence Algorithm is designed to mimic a human being&#39;s subconscious mind.  For example, a human child learns to walk through practice,  and after he/she has learned to walk, the knowledge-processes are stored in the child's subconscious memory. So, the child can walk without consciously thinking about walking all the time.  Also, a subconscious intelligence is much faster and efficient because it does not require the 80% learning and thinking processes.    
+Fractal Intelligence Algorithm is designed to mimic a human being&#39;s subconscious mind.  For example, a human child learns to walk through practice,  and after he/she has learned to walk, the knowledge-processes are stored in the child's subconscious memory. So, the child can walk without consciously thinking about walking all the time.  Also, a subconscious intelligence is much faster and efficient because it does not require the 80% learning and thinking processes for automation.    
 <br/><br/>
 However, to solve such complex process automation, we need a single generic SPA module that is able to automatically adapt to different Decision tasks.  So, we can instantiate hundreds of SPA modules at runtime, without manual programming; by simply feeding task artifact (characteristic) files to a generic SPA module. As you can see, the sub-SPA task package classes are pretty simple, which makes it possible to create a true Fractal SPA module.  A single/simple fractal algorithm to handle complex tasks' automation. 
 
