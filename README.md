@@ -36,6 +36,7 @@ Goals:
 ------
 1.      Develop a small, efficient, and fast performing program that empowers small smart devices/appliances.
 2.      Easy to use and intuitive Visual Interfaces to allow a non-programmer to control and program their SPA devices.
+3.      Shrink the Algorithm to run in an 80 Kilobytes memory space computing device.  
  
 
 
