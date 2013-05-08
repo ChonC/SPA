@@ -74,7 +74,7 @@ Vision:
   <tr>
     <td width="345">
     
-       <img src="http://chon.techliminal.com/cityfind/images/fractal_intelligence_algorithm.png" width="340" height="324" />
+       <img src="http://chon.techliminal.com/cityfind/images/fractal_intelligence_algorithm.png" width="338" height="462" />
     </td>
     <td width="492">
 SPA vision is to create a true Fractal Intelligent Algorithm to automate all kinds of Processes. 
