@@ -77,7 +77,7 @@ Vision:
        <img src="http://chon.techliminal.com/cityfind/images/fractal_intelligence_algorithm.png" width="340" height="324" />
     </td>
     <td width="492">
-SPA goal/vision is to create a true Fractal Intelligent Algorithm to automate all kinds of Processes. 
+SPA vision is to create a true Fractal Intelligent Algorithm to automate all kinds of Processes. 
 Like a Fractal Antenna in a cell phone, Fractal Intelligent algorithm will bring many useful applications in small tech devices.  
 
 Fractal Intelligence Algorithm is designed to mimic a human being&#39;s subconscious mind.  For example, a human child learns to walk through practice,  and after he/she has learned to walk, the knowledge-processes are stored in the child's subconscious memory. So, the child can walk without consciously thinking about walking all the time.  Also, a subconscious intelligence is much faster and efficient because it does not require the 80% learning and thinking processes for automation.    
