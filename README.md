@@ -13,9 +13,12 @@ Record your Smart Decision Processes, store them in a computing device, and auto
   alt="SPA Introduction Video" height="422" width="750"
 </a>
 
-Story
+INTERNET OF THINGS
 -----
-This Fractal Smart Algorithm let you records your decision process into household smart devices, so the device automatically make decision and control the system.  Recording decision process based system can perform a better flawless automation than the preference based system.  Also, it is a Fractal Algorithm: like the fractal Antenna in a cell-phone, huge decision processes could fit into a tiny device.  I developed 80% of it in 2001, but it was little too early.  Useless at the time :-) 
+SPA - "INTERNET OF THINGS" DEVICES TALK TO EACH OTHER 
+
+SPA is an Open Source Fractal Smart Algorithm that allows “Internet of Things” devices talk  to each other in a uniform standard way.  SPA Fractal Smart Algorithm let you record any big or small decision process into a small household smart devices, so the device automatically make decision and control the system. Like the fractal Antenna in a cell-phone, huge decision processes could fit into a tiny device. I developed 80% of it in 2001, but it was little too early. Useless at the time :-) 
+ 
 
 It needs to convert it to a HTML5 app for ease of use, so I release it as Opensource project.   Also, I hope to further develop as a personal assistance app.  
 
